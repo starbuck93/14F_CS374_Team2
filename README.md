@@ -1,0 +1,2 @@
+--to do for homework before 9/15/2014
+--->edit the Ch02Qualities powerpoint to reflect our project for this class
