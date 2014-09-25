@@ -1,0 +1,17 @@
+• How many conflicts for students enrolled and if we can move them
+• Is there already classes in certain rooms that we're trying to move it to?
+• Priority of student classification
+• Input student information, input desired time slot to change class >>> number of conflicts between the students
+• Authentication method
+	
+1. Classification
+2. Class it conflicts with, make sure its not last chance to change it
+	a. If the class isn't important then it doesn't matter as much
+	
+We could use misfits for alternate times that don't have many classes offered
+
+Possibly move more than one class around to make another with less conflicts
+
+Depends on the classroom size, so the classroom could change if the size is correct and maybe teach in a Lab
+
+Smallest conflicts is the best result
