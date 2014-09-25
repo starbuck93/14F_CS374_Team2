@@ -1,8 +1,8 @@
-• How many conflicts for students enrolled and if we can move them
-• Is there already classes in certain rooms that we're trying to move it to?
-• Priority of student classification
-• Input student information, input desired time slot to change class >>> number of conflicts between the students
-• Authentication method
+ï»¿â€¢How many conflicts for students enrolled and if we can move them
+â€¢Is there already classes in certain rooms that we're trying to move it to?
+â€¢Priority of student classification
+â€¢Input student information, input desired time slot to change class >>> number of conflicts between the students
+â€¢Authentication method
 	
 1. Classification
 2. Class it conflicts with, make sure its not last chance to change it
