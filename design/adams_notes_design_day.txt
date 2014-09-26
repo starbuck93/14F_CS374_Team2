@@ -1,5 +1,5 @@
 ﻿•How many conflicts for students enrolled and if we can move them
-•Is there already classes in certain rooms that we're trying to move it to?
+•Are there already classes in certain rooms that we're trying to move it to?
 •Priority of student classification
 •Input student information, input desired time slot to change class >>> number of conflicts between the students
 •Authentication method
@@ -15,3 +15,18 @@ Possibly move more than one class around to make another with less conflicts
 Depends on the classroom size, so the classroom could change if the size is correct and maybe teach in a Lab
 
 Smallest conflicts is the best result
+
+
+____________________________________________________________________________________________________________
+
+INPUT: using HTML and PHP, a CRN and the optimal NEW time and room number 
+	(or same room number if not specified)...
+
+OUTPUT: list of least to greatest conflicts per time slot and room number to a web page
+
+We need: 
+	Student schedules put into a clean database,
+	Student classification (we really just care about Senior yes or no),
+	Availability of rooms in the database (available, yes or no)
+
+
