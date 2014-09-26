@@ -1,0 +1,9 @@
+﻿INPUT: using HTML, PHP, a CRN and the optimal NEW time and room number 
+	(or same room number if not specified)...
+
+OUTPUT: list of least to greatest conflicts per time slot and room number to a web page
+
+We need: 
+	Student schedules put into a clean MySQL database,
+	Student classification (we really just care about Senior yes or no),
+	Availability of rooms in the database (available, yes or no)
