@@ -1,0 +1,71 @@
+schema.txt
+--------------------------------------------------------------------------------
+Intro.
+
+We here describe database schema for our project, including entities and their
+relationships.
+--------------------------------------------------------------------------------
+A. Entities
+
+Entity List:
+------------
+student
+professor
+course
+office-hours
+building
+room
+
+student
+-------
+id (key)                        --Banner id
+first-name
+middle-initial
+last-name
+classification
+hours
+
+professor
+---------
+id (key)
+first-name
+middle-initial
+last-name
+
+course
+------
+crn (key)
+department              --e.g. CS, IT, or MATH
+number                  --e.g. 120, 221, or 331
+title                   --"Design and Analysis of Algorithms"
+time                    --start time
+duration                --integer minutes
+dow                     --string: "M" "MWF" "MW" "TR"
+room-id                 --(will map to building)
+
+office-hours
+------------
+id (key)
+professor-id
+time                    --start time
+duration                --integer minutes
+dow                     --string: "M" "MWF" "MW" "TR"
+room-id                 --(maps to building)
+
+building
+--------
+id (key)
+name                    --full name: "Mabee Business Building"
+abbrv                   --abbreviation: MBB
+
+room
+----
+id (key)
+number
+building-id
+has-lab                 --Boolean
+
+--------------------------------------------------------------------------------
+B. Relationships
+
+--------------------------------------------------------------------------------

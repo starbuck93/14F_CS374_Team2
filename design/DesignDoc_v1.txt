@@ -1,4 +1,7 @@
-﻿INPUT: using HTML, PHP, a CRN and the optimal NEW time and room number 
+﻿Design Doc Version 1 - Team 2
+
+--------------------------------------------------------------------------------
+INPUT: using HTML, PHP, a CRN and the optimal NEW time and room number 
 	(or same room number if not specified)...
 
 OUTPUT: list of least to greatest conflicts per time slot and room number to a web page
@@ -7,3 +10,85 @@ We need:
 	Student schedules put into a clean MySQL database,
 	Student classification (we really just care about Senior yes or no),
 	Availability of rooms in the database (available, yes or no)
+--------------------------------------------------------------------------------
+Project Areas:
+        - Web site:
+          - git repo maps to Web directory on server
+          - filesystem setup
+[Adam and Ethan]
+        - User interface: (HTML)
+          - usability
+            - styling
+          - Web filesystem design (how do we structure the web site as a whole; e.g. anchors/links)
+          - About us (We want to be the very best, and perhaps catch 'em all)
+        - Databases: (MySQL)
+          - setting up MySQL
+          - designing schema
+          - student schedules
+          - course information
+          - building information
+[Roger and Jonathan]
+        - Backend: (PHP)
+          - PHP APIs for Database access (higher level abstractions in code to the database)
+            - class libraries for each entity kind
+          - PHP interface code to User interface (Web pages with embedded PHP)
+          - PHP APIs for necessary computations
+--------------------------------------------------------------------------------
+Project Areas (detail):
+
+Web site filesystem setup -
+
+.
+├── aboutus.html
+├── app
+│   ├── conflictor.php
+│   └── index.html
+├── browse
+│   ├── course.php
+│   ├── index.html
+│   └── schedule.php
+├── index.html
+├── libs
+│   ├── conflicts-api.php
+│   └── databases.php
+└── my.css
+
+User interface - We construct a user interface using the file structure described above
+
+  Goals: We want to view registration information (mini-Banner) through the site. Then we
+want to provide an interface for moving course times and seeing conflicts.
+
+     - Browse course page
+       (minimize output)
+       - of kind
+       - in building (2D misfits approach?)
+       - by professor
+       - hyperlink to schedules of students enrolled in course
+       - ETC.
+
+     - Browse student schedule
+       - hyperlink to courses in which the student is enrolled
+
+     - Course editing page
+       - select a course and change its time
+       - report conflicts (minimized)
+       - options: provide interface to set options to tailor the algorithm
+         - raw versus tailored conflicts
+         - scope of the run (check all room? check all buildings?)
+
+Databases:
+        We describe database in the file design/schema.txt.
+
+Backend -
+        We store PHP libraries in libs/. These are different from PHP interface files. They
+contain just APIs (no code executed by default; contain class hierarchies and functions) for
+accomplishing the tasks of our Web application.
+              libs/databases.php
+                Contains APIs for accessing database entries; provides a programming interface
+to objects extracted from the site's database; this interface is used by conflicts-api.php to
+implement the site's functionality.
+              libs/conflicts-api.php
+                Contains APIs that apply algorithms to user input data and database objects; this
+is where we implement the core functionality of what our application does.
+        We discuss these in more detail later on in this document.
+--------------------------------------------------------------------------------
