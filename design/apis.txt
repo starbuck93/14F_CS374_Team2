@@ -1,0 +1,113 @@
+apis.txt
+--------------------------------------------------------------------------------
+Intro.
+
+        - Here we propose an API for managing database objects.
+        - This API will be written in PHP.
+        - We stay away from describing any HTML related output tasks. We design
+these APIs to output primitive (integer, string, and array of primitive) data
+types.
+--------------------------------------------------------------------------------
+A. Database access
+
+We will encapsulate database connection and querying in a class that will serve
+as a base to classes representing each kind of entity stored in the database.
+This will help streamline database access and allow for easier coding of later
+functionality. Each of these subclasses will support retrieving a pre-existing
+object from the database or creating a new one.
+
+DatabaseObject
+--------------
+c-stor()
+
+abstract create(/*variable argument list*/)        --create from variable input data; constructor will invoke this potentially; can init default
+abstract create_from_key($primary_key)             --create object from primary-key (in other words, make a database query)
+abstract create_from_row($row_description)         --create object from various fields (row description: '$field=$value')
+static protected connection                        --connection object shared between all instances
+static protected query($query_string)              --perform database query
+
+Student extends DatabaseObject
+------------------------------
+first_name()
+last_name()
+middle_initial()
+classification()
+hours()
+array get_courses()
+
+Professor extends DatabaseObject
+--------------------------------
+first_name()
+middle_initial()
+last_name()
+array get_office_hours()                --might have multiple office-hour sessions
+
+Course extends DatabaseObject
+-----------------------------
+department()
+number()
+title()
+full_title()                    --department() . " " . number() . " " . title()
+time()
+duration()
+day_of_week()
+room()                          --retrieve actual room object, not just id
+ConflictDescription compute_conflicts($course)      --maybe make this take '$changeTime' as parameter
+array get_students()
+
+**note: compute conflicts finds raw conflict information in the form of a 'ConflictDescription' object
+
+OfficeHours extends DatabaseObject
+----------------------------------
+time()
+duration()
+day_of_week()
+room()
+get_professor()
+
+Building extends DatabaseObject
+-------------------------------
+name()
+name_abbrv()                    --abbreviated name
+
+Room extends DatabaseObject
+---------------------------
+number()
+building()
+has_lab()
+--------------------------------------------------------------------------------
+B. Conflicts API
+
+   - The conflicts API will be used to implement the algorithms needed to compute
+course time-change conflicts. There is a 'compute_conflicts()' method bound to any
+course object. It returns an object of type 'ConflictDescription' which can be used
+to describe course conflicts and perform computations based on conflict information.
+
+   - This object is primarily used to analyze conflicts, not find them (that has already
+been accomplished at this point).
+
+   - Any 'ConflictDescription' contains conflict information stored as a list of students,
+each with a set of conflicting courses. Most likely the set of conflicting courses will 
+contain only 1 course, however it is possible that it contain more than one.
+
+ConflictDescription
+-------------------
+[impl]
+$course                 --course being altered
+$changeTime             --information about course time change
+$changeDuration
+$flicts = array(array($student,$course)[, ...])         --store students and conflicting courses; there might be more than one conflict per instance; such
+[interface]                                                     as when the move time overlaps more than one conflicting course
+count()               --retrieve number of conflicts
+student_exists($student) --does the specified student have a conflict (exists in the ConflictDescription)?
+--------------------------------------------------------------------------------
+C. Optimizations
+
+   Sometimes a batch of database entities is required for some operation. In this
+case it is efficient to limit the number of database queries. At other times,
+it is efficient to make a query that extracts multiple objects at once across
+multiple tables. This may involve extracting a partial object (customized).
+   We provide APIs for accomplishing these batch/custom queries.
+
+function BatchQuery($query, array $typeList); // creates row_description strings to create DatabaseObjects
+--------------------------------------------------------------------------------

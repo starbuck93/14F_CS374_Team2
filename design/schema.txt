@@ -44,14 +44,23 @@ duration                --integer minutes
 dow                     --string: "M" "MWF" "MW" "TR"
 room-id                 --(will map to building)
 
+student-course                      --intersection data for student and course
+--------------
+student-id (key)        --dual primary key
+course-id  (key)        |
+
 office-hours
 ------------
 id (key)
-professor-id
 time                    --start time
 duration                --integer minutes
 dow                     --string: "M" "MWF" "MW" "TR"
 room-id                 --(maps to building)
+
+office-hours-assignment            --intersection data for office-hours and professor
+-----------------------
+professor-id                            
+office-hours-id (key)     -- this MUST be sole primary key so that only one professor may be assigned to an office-hours entity
 
 building
 --------
@@ -69,6 +78,12 @@ has-lab                 --Boolean
 --------------------------------------------------------------------------------
 B. Relationships
 
+        - We define the relationships between entities in this section.
+        - 'Intersection Data' includes entities that function to relate different
+entities and is not a direct entity to be related in and of itself.
+        - The HAS MANY relationship implies 'one or more'. The HAS A
+relationship implies 'only one'.
+
 Entity List:
 ------------
 student
@@ -77,6 +92,17 @@ course
 office-hours
 building
 room
+
+Intersection Data:
+------------------
+student-course
+office-hours-assignment
+
+STUDENT has many COURSEs                    COURSE has many STUDENTs
+PROFESSOR has many COURSEs                  COURSE has a PROFESSOR
+COURSE has a ROOM                           ROOM has many COURSEs
+BUILDING has many ROOMs                     ROOM has a BUILDING
+PROFESSOR has many OFFICE-HOURs             OFFICE-HOUR has a PROFESSOR
 
 student
 -------
@@ -108,7 +134,6 @@ room-id             has-a
 office-hours
 ------------
 id (key)
-professor-id		has-a
 time                has-a  
 duration            has-a    
 dow                 has-a  
