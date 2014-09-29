@@ -37,7 +37,8 @@ course
 crn (key)
 department              --e.g. CS, IT, or MATH
 number                  --e.g. 120, 221, or 331
-title                   --"Design and Analysis of Algorithms"
+professor-id
+name                    --"Design and Analysis of Algorithms"
 time                    --start time
 duration                --integer minutes
 dow                     --string: "M" "MWF" "MW" "TR"
@@ -68,4 +69,61 @@ has-lab                 --Boolean
 --------------------------------------------------------------------------------
 B. Relationships
 
+Entity List:
+------------
+student
+professor
+course
+office-hours
+building
+room
+
+student
+-------
+id (key)                        
+first-name			has-a
+middle-initial		has-a
+last-name			has-a
+classification		has-a
+hours				has-a
+
+professor
+---------
+id (key)
+first-name			has-a
+middle-initial		has-a
+last-name			has-a
+
+course
+------
+crn (key)			has-a
+department          has-a
+number              has-a  
+name                has-a
+time                has-a   
+duration            has-a    
+dow                 has-a    
+room-id             has-a    
+
+office-hours
+------------
+id (key)
+professor-id		has-a
+time                has-a  
+duration            has-a    
+dow                 has-a  
+room-id             has-a   
+
+building
+--------
+id (key)			
+name                has-a   
+abbrv               has-a   
+
+room
+----
+id (key)
+number				has-a
+building-id 		has-a
+has-lab             has-a
 --------------------------------------------------------------------------------
