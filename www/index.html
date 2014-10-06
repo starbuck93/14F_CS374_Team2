@@ -1,8 +1,81 @@
+<!DOCTYPE html>
+
 <html>
+<head>
+  <style>
+		#nav {
+			display: table;
+			height: 50px;
+			width: 75%;
+			font-size: 30px;
+			font-size: 2vw;
+		}
 
-    <body>
-        <h1> CS374 14F SE bleh bleh bla </h1>
+		#nav li {
+			display: table-cell;
+			height: 10px;
+			width: 25%;  /* (100 / numItems)% */
+			line-height: 50px;
+			text-align: center;
+			background: #ddd;
+			border-right: 1px solid #fff;
+			white-space: nowrap;
+		}​
 
-        <p> You might like to read our <a href="aboutus.html">creed</a> to learn more about us. </p>
-    </body>
+		@media (max-width: 767px) {
+			#nav li {
+				display: block;
+				width: 100%;
+			}
+  </style>
+
+	<title>Hello, World</title>
+
+</head>
+<body>
+  <ul id="nav">
+	<li><a href="#">Main</a></li>
+	<li><a href="#" >Browse Schedules</a></li>
+	<li><a href="#">Advanced Conflicts Finder</a></li>
+	<li><a href="aboutus.html">About Us</a></li>
+  </ul>
+
+	<h1>Course Conflict Tester</h1>
+	<h3>Team 2: Gee, Shouse, Starbuck, Waddle</h3>
+    <p>Instructions: blee blah blee blah blee blah blee blah blee blah blee blah </p>
+	<mark>After the user hits go, PHP runs in the background to find conflicts that involve the most <br>
+	(and most important) students and outputs data beneath here.</mark>
+	<br><br>
+    <form action="#">CRN Number
+      <input type="text" name="fname">
+    </form>
+	<br>
+	<select>
+      <option>Select time slot</option>
+      <option>I don't care</option>
+      <option>1:00pm</option>
+      <option>2:00pm</option>
+      <option>3:00pm</option>
+      <option>4:00pm</option>
+      <option>5:00pm</option>
+    </select>
+	<button type="button" onclick="alert('Hello world!')">Run Conflicts</button>
+
+    <h2>Conflicts Report:</h2>
+
+    <ul>
+      <li>Conflict (most optimal, least conflicts)</li>
+      <li>Conflict</li>
+      <li>Conflict</li>
+      <li>Conflict</li>
+      <li>Conflict</li>
+      <li>Conflict</li>
+      <li>...</li>
+	  <li>Conflict least optimal, most conflicts)</li>
+    </ul>
+
+
+
+</body>
+
 </html>
