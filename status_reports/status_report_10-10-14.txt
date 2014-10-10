@@ -1,3 +1,12 @@
-we basically did the beta design this week.
-we need to decide how much we're getting "paid" in "real" money
-we need to keep up with weekly status reports with what happens every week
+Monday: Design Beta was due. Should probably meet to work on specifications and honestly finish design from last week
+Wednesday: We didn't do anything.
+Friday: PHP Coding specifications.
+
+People doing things:
+--------------------
+Adam: did 25%
+Ethan: did 25%
+Jonathan: did 25%
+Rodger: did 25%
+
+On Schedule.
