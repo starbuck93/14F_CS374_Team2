@@ -1,0 +1,53 @@
+apis.txt
+--------------------------------------------------------------------------------
+Introduction -
+
+             We propose two APIs for our Course Conflicts application
+                1. To provide database access
+                2. To compute course conflicts
+
+    Database access will be wrapped in our own database connection functionality.
+This information pulled from the database will be used by the module that computes
+course conflicts. This module derives different kinds of data handlers which will
+perform specific computations. For example, one handler computes course conflicts
+for moving a course to a specific time whereas another handles moving a course
+from its current time to any other time.
+--------------------------------------------------------------------------------
+A. Database access
+
+We propose a wrapper library for handling mySQL connections. This interface
+focuses on wrapping a connection object which is shared among all data handler
+instances. The wrapper provides a mechanism for issuing a query to the database
+engine.
+
+class Query
+-----
+(private)$con                   --database connection object
+construct()                     --open connection to mySQL database
+issue_query($query_string)      --returns array of arrays
+--------------------------------------------------------------------------------
+B. Data handler
+
+We propose a class heirarchy to abstract handling the data we pull from the database.
+Each derivation represents a different way in which we handle the data.
+
+class DataHandler
+-----------------
+(static protected)$querier
+abstract run_task(array $inputItems)
+ -- run_task() is implemented by derived functionality to perform a task
+ -- with data based on input from the view form (user input); this input
+ -- is passed to run_task() as a PHP associative array, where the key
+ -- describes each value; each derived variant of run_task() expects certain
+ -- key values to describe input values; they can be specified in any order
+ -- in the array; if an expected input does not expect the function throws
+static protected check_items(array $inputItems,string $keys)
+ -- returns true or false if all the keys specified in $keys exist as keys
+ -- in the array $inputItems; $keys is a string containing comma separated 
+ -- key strings
+
+-- SimpleConflictHandler: identify conflicts when moving a section
+-- from its current time to another time
+class SimpleConflictHandler extends DataHandler
+-----------------------------------------------
+run_task(array $inputItems)     --keys=("CRN", "TIME")
