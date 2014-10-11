@@ -8,13 +8,13 @@ relationships.
 A. Entities
 
 Entity List:
-------------
-student
-professor
-course
-office-hours
-building
-room
+ student
+ professor
+ course
+ section
+ office-hours
+ building
+ room
 
 student
 -------
@@ -34,20 +34,25 @@ last-name
 
 course
 ------
-crn (key)
+course-id (key)
 department              --e.g. CS, IT, or MATH
 number                  --e.g. 120, 221, or 331
-professor-id
 name                    --"Design and Analysis of Algorithms"
-time                    --start time
+credit-hours
+
+section
+-------
+crn (key)               --section ID number
+professor-id
+time                    --start time in integer minutes since midnight 
 duration                --integer minutes
-dow                     --string: "M" "MWF" "MW" "TR"
+dow                     --string (for example: "M" "MWF" "MW" "TR")
 room-id                 --(will map to building)
 
-student-course                      --intersection data for student and course
+student-section                     --intersection data for student and section
 --------------
 student-id (key)        --dual primary key
-course-id  (key)        |
+section-id  (key)        |
 
 office-hours
 ------------
@@ -85,22 +90,21 @@ entities and is not a direct entity to be related in and of itself.
 relationship implies 'only one'.
 
 Entity List:
-------------
-student
-professor
-course
-office-hours
-building
-room
+ student
+ professor
+ course
+ office-hours
+ building
+ room
 
 Intersection Data:
 ------------------
-student-course
+student-section
 office-hours-assignment
 
-STUDENT has many COURSEs                    COURSE has many STUDENTs
-PROFESSOR has many COURSEs                  COURSE has a PROFESSOR
-COURSE has a ROOM                           ROOM has many COURSEs
+STUDENT has many SECTIONs                   SECTION has many STUDENTs
+PROFESSOR has many SECTIONs                 SECTION has a PROFESSOR
+COURSE has many SECTIONs                    SECTION has a COURSE
+SECTION has a ROOM                          ROOM has many SECTIONs
 BUILDING has many ROOMs                     ROOM has a BUILDING
 PROFESSOR has many OFFICE-HOURs             OFFICE-HOUR has a PROFESSOR
-
