@@ -1,3 +1,4 @@
+Weekend: Finalized most design decisions, created Dataflow diagram
 Monday: 
 Wednesday:
 Friday: 
@@ -6,5 +7,5 @@ People doing things:
 --------------------
 Adam:
 Ethan:
-Jonathan:
+Jonathan: diagram-> 1 hr 10 min, weekend meeting-> 3hrs,
 Rodger:
