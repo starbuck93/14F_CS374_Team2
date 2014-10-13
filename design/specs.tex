@@ -1,6 +1,9 @@
 \documentclass[11pt]{article}
 \usepackage{hyperref}
+\usepackage{graphicx}
 \usepackage[margin=0.5in]{geometry}
+
+\hypersetup{linkcolor=blue,colorlinks=true}
 
 \begin{document}
 \begin{center}
@@ -9,18 +12,76 @@
 \end{center}
 \vspace{.1in}
 
-In this document, we describe the specifications for our Course Conflicts application.
+In this document, we describe the specifications for our Schedule Conflict Calculator application.
 \vspace{.2in}
 
 \LARGE Table of Contents \\
 
 \normalsize
-\begin{tabular}{l || r}
+\begin{tabular}{| l || r |}
   \hline
-  Requirements & Describes requirements of our server \\ \hline
-  Use cases and scenarios & Describes user interaction with our product \\ \hline
-  Data flow & Describes the interaction of modules within our product \\
+  \nameref{sec:reqs} & Describes requirements of our product \\ \hline
+  \nameref{sec:scenes} & Describes user interaction with our product \\ \hline
+  \nameref{sec:dataflow} & Describes the interaction of modules within our product \\ \hline
+  \nameref{sec:glossary} & Glossary of terms \\
   \hline
 \end{tabular}
+
+\pagebreak[4]
+
+\section{Requirements} \label{sec:reqs}
+
+Our Schedule Conflict Calculator Web application will function as an extension to other academic administration technologies. Given
+a set of inputs related to moving a course from one time block to another, the application determines the number of student
+scheduling conflicts that would arise in some number of move scenarios. The application handles a number of different move
+scenarios, allowing the user to decide which scenario to test.
+
+\pagebreak[4]
+
+\section{Use Cases and Scenarios} \label{sec:scenes}
+
+The user is allowed multiple scenarios for calculating schedule conflicts. For example, sometimes the user has a single section-change
+description in mind and would like to see scheduling conflicts. In other instances, a user might know that they need to move a section
+to another time and/or room, yet would like to know which room out of a set of possible candidates has the least number of conflicts.
+\vspace{.2in}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.5\textwidth]{diagrams/scenarioA.png}
+  \caption{Describes a simple scenario for finding conflicts given a single section-change description}
+\end{figure}
+
+In the simple case, we consider a single section-change description supplied with a desired input section. Output will consist of the
+number of conflicts as well as a detailed look at individual conflicts. Other input parameters might be needed to provide a more 
+customized operation tailored to user needs.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.5\textwidth]{diagrams/scenarioB.png}
+  \caption{Describes a more complex scenario for finding conflicts given multiple section-change descriptions}
+\end{figure}
+
+Other scenarios are needed for more complex operations. A user might wish to provide a set of section-change descriptions to apply to
+the input course in order to find the best change time. This set of descriptions may encompass multiple rooms and buildings and also
+take into consideration moving courses within the set of section-change descriptions.
+
+\pagebreak[4]
+
+\section{Data Flow} \label{sec:dataflow}
+
+This section describes the interaction of various modules within our application. We map the flow of data through the different
+modules of the application, demonstrating how it is used and transformed.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=1\textwidth,scale=1.5]{diagrams/dataflow.png}
+  \caption{Data flow diagram for main application operation}
+\end{figure}
+
+\pagebreak[4]
+
+\section{Glossary} \label{sec:glossary}
+
+\input{glossary-source.tex}
 
 \end{document}

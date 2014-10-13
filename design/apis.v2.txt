@@ -2,7 +2,7 @@ apis.txt
 --------------------------------------------------------------------------------
 Introduction -
 
-             We propose two APIs for our Course Conflicts application
+             We propose two APIs for our Schedule Conflict Calculator application
                 1. To provide database access
                 2. To compute course conflicts
 
