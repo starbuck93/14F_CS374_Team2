@@ -10,6 +10,6 @@
   \item[room] The meeting place of a section
   \item[scenario] A section change operation (e.g. moving a section from one time to another)
   \item[section] An instantiation of a course
-  \item[section-change description] A tuple that specifies a desired change to a section's time and location
+  \item[section-change description] A tuple that specifies a desired change to a section's time and location.  Non-room changes have a hierarchy; change in a section's day implies change in time.  A change in professor implies change in day and change in time.
   \item[student] A participant in a section
 \end{description}
