@@ -1,15 +1,17 @@
 Weekend: Finalized most design decisions, created Dataflow diagram
-Monday: 
-Wednesday:
-Friday: 
+Monday: Turned in spec Alpha
+Wednesday: talked about specs more and made a state machiene with the class
+Friday: --fall break--
 
 People doing things:
 --------------------
-Adam:
-Ethan:
-Jonathan: diagrams-> 2 hr, weekend meeting-> 3hrs,
-Rodger:
+Adam: 10%
+Ethan: 10%
+Jonathan: 40% diagrams-> 2 hr, weekend meeting-> 3hrs,
+Rodger: 40%
 
+
+Rodger and Jonathan did most of the specification work.
 
 Note from Jonathan
 ------------------
