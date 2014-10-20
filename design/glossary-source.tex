@@ -1,12 +1,15 @@
 \begin{description}
+  \item[association] The set of courses whose location matches and time duration overlaps a section-change description
   \item[building] A collection of rooms
   \item[course] A general description of a class of sections
-  \item[locked-section] A section within a section-change description that cannot be moved
+  \item[data-handler] An object that executes a scenario using data obtained from the database
+  \item[floating-section] A section that may be potentially moved from either its current time, location or both
+  \item[locked-section] A section that cannot be moved from its current time and location
   \item[professor] An instructor of a course; there is one professor per section
   \item[office-hours] A time block associated with a professor; a potential conflict item to consider
   \item[room] The meeting place of a section
+  \item[scenario] A section change operation (e.g. moving a section from one time to another)
   \item[section] An instantiation of a course
   \item[section-change description] A tuple that specifies a desired change to a section's time and location
   \item[student] A participant in a section
-  \item[unlocked-section] A section within a section-change description that may be moved potentially
 \end{description}
