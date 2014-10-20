@@ -1,15 +1,14 @@
 Properties of Verification
 
-Binary (OK or not OK)  --false, may not be binary
-defect is defect regardless of severity  --false, severity matters
-no defects should be tolerated  --false
+May not be Binary (i.e. OK/not OK)
+Severity of a defect matters
+Some defects are allowed.
 
-Objective
-even usability has objective measures  --true
+May be subjective or objective
+e.g., usability
 
-Implicit qualities should be verified --false, don't not verify explicit qualities
-Implicit means it's not defined by us, it's inherent.
-
-Explicit qualities should be verified.
+Even Implicit qualities should be verified
 because requarementares are often incomplete
 eg robustness
+
+
