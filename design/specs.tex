@@ -1,6 +1,7 @@
 \documentclass[11pt]{article}
 \usepackage{hyperref}
 \usepackage{graphicx}
+\usepackage{float}
 \usepackage[margin=0.5in]{geometry}
 
 \hypersetup{linkcolor=blue,colorlinks=true}
@@ -40,9 +41,10 @@ scenarios, allowing the user to decide which scenario to test.
 
 \section{Use Cases and Scenarios} \label{sec:scenes}
 
-The user is allowed multiple scenarios for calculating schedule conflicts. For example, sometimes the user has a single section-change
-description in mind and would like to see scheduling conflicts. In other instances, a user might know that they need to move a section
-to another time and/or room, yet would like to know which room out of a set of possible candidates has the least number of conflicts.
+The user is allowed multiple scenarios for calculating schedule conflicts. For example, sometimes the user has a single
+\textit{section-change description} in mind and would like to see scheduling conflicts. In other instances, a user might
+know that they need to move a section to another time and/or room, yet would like to know which room out of a set of possible
+candidates has the least number of conflicts.
 \vspace{.2in}
 
 \begin{figure}[h]
@@ -52,8 +54,10 @@ to another time and/or room, yet would like to know which room out of a set of p
 \end{figure}
 
 In the simple case, we consider a single section-change description supplied with a desired input section. Output will consist of the
-number of conflicts as well as a detailed look at individual conflicts. Other input parameters might be needed to provide a more 
-customized operation tailored to user needs.
+number of conflicts as well as a detailed look at individual conflicts. If another section is already \textit{associated} with the
+section-change description, the user is informed of the conflict but is still provided the normal conflict output as if there weren't
+a course currently associated with the description. Other input parameters might be needed to provide a more customized operation tailored
+to meet user needs.
 
 \begin{figure}[h]
   \centering
@@ -62,8 +66,16 @@ customized operation tailored to user needs.
 \end{figure}
 
 Other scenarios are needed for more complex operations. A user might wish to provide a set of section-change descriptions to apply to
-the input course in order to find the best change time. This set of descriptions may encompass multiple rooms and buildings and also
-take into consideration moving courses within the set of section-change descriptions.
+the input section in order to find the best change description. This set of descriptions may encompass multiple rooms and buildings and also
+take into consideration moving courses already associated with section-change descriptions. This introduces added complexity. \\
+
+To deal with this complexity, we introduce the terms \textit{locked-section} and \textit{floating-section} (see glossary). In the proposed
+scenario (Figure 2), a set of section-change descriptions is provided into which the input section may be moved. In a simple case, the scenario
+given in Figure 1 can be applied to each description. The description(s) with the fewest conflicts are then presented as output. However, sometimes
+more than one section can be moved within the sections already associated with each section-change description. Each one of these sections is either marked
+as a \textit{locked-section} or a \textit{floating-section}. A locked-section is one that cannot be moved. This automatically disqualifies the description to
+which the locked-section is associated (conflicts are still computed as in the Figure 1 scenario). A floating-section may be moved within the set of 
+section-change descriptions.
 
 \pagebreak[4]
 
@@ -78,6 +90,41 @@ modules of the application, demonstrating how it is used and transformed.
   \caption{Data flow diagram for main application operation}
 \end{figure}
 
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=.75\textwidth]{diagrams/FunctionA.png}
+  \caption{Details function A in Figure 3}
+\end{figure}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=.75\textwidth]{diagrams/FunctionsB&C.png}
+  \caption{Details function B and C in Figure 3}
+\end{figure}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=.75\textwidth]{diagrams/FunctionD.png}
+  \caption{Details function D in Figure 3}
+\end{figure}
+
+In each proposed scenario, a user provides input through an HTML form which is passed to a data handler. The data handler uses an
+SQL database connection to issue a query and retrieve the data needed to execute the task. The handler is responsible for producing
+the desired result. Different handlers will require different amounts and/or types of data and thus will make different queries. Handlers
+will be implemented using a class hierarchy in PHP. Each derived class will implement a different handler-kind which executes a
+distinct scenario. \\
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=.75\textwidth]{diagrams/data-handler-uml.png}
+  \caption{Simple UML concept for data-handler class-hierarchy}
+\end{figure}
+
+Though each handler performs a different operation, it still functions according to the same interface. Figure 3 graphically
+models data as it flows from the client, is transformed and goes back to the client as output. Figures 4-6 provide in more detail
+the functions presented in Figure 3.
+
+\clearpage
 \pagebreak[4]
 
 \section{Glossary} \label{sec:glossary}

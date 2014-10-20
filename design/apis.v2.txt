@@ -40,7 +40,7 @@ abstract run_task(array $inputItems)
  -- is passed to run_task() as a PHP associative array, where the key
  -- describes each value; each derived variant of run_task() expects certain
  -- key values to describe input values; they can be specified in any order
- -- in the array; if an expected input does not expect the function throws
+ -- in the array; if an expected input does not exist the function throws
 static protected check_items(array $inputItems,string $keys)
  -- returns true or false if all the keys specified in $keys exist as keys
  -- in the array $inputItems; $keys is a string containing comma separated 
