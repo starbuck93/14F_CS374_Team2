@@ -11,3 +11,12 @@ INSERT INTO test.student (id,fname,lname, major) VALUES
 
 
 
+--test.class
+DROP TABLE IF EXISTS test.class;
+CREATE TABLE test.class(id INT PRIMARY KEY, prof1name VARCHAR(20), profLname VARCHAR(20), days VARCHAR(3), course VARCHAR(5), coursenumber INT, section INT);
+INSERT INTO test.class (id, prof1name, profLname, days, course, coursenumber, section) VALUES
+	(1, "John", "Smith", "MWF", CS, 101, 1),
+	(2, "John", "Smith", "TR", CS, 101, 2),
+	(3, "John", "Doe", "TR", CS, 101, 3),
+	(4, "John", "Doe", "MWF", CS, 101, 4),
+	
