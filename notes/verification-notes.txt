@@ -1,0 +1,9 @@
+Verification Notes - Roger Gee - October 20th, 2014
+--------------------------------------------------------------------------------
+Not black and white (not necessarily binary)
+    severity of defect is important
+
+May be subjective or objective
+
+Even implicit qualities should be verified
+--------------------------------------------------------------------------------
