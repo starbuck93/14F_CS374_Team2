@@ -1,8 +1,8 @@
 Properties of Verification
 
-May not be Binary (i.e. OK/not OK)
-Severity of a defect matters
-Some defects are allowed.
+May not be Binary (OK,not OK)
+Severity of a defect is important 
+Some defects may be tolerated
 
 May be subjective or objective
 e.g., usability
@@ -10,5 +10,24 @@ e.g., usability
 Even Implicit qualities should be verified
 because requarementares are often incomplete
 eg robustness
+
+
+How to hire acccountants:
+
+The first guy walks in:
+
+What's 2+2?  3
+
+Outta there.
+
+The next guy walks in:
+
+What's 2+2?  4
+
+We have another guy to interview, we'll call you back.
+
+Third guy.  What's 2+2?  What do you want it to be?  Hired!
+
+You should have 20 cucumbers at this point.
 
 
