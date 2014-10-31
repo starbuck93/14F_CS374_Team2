@@ -9,7 +9,7 @@ Labor:
 --------------------
 Adam: 
 Ethan: 
-Jonathan: 
+Jonathan: Met with Adam to make verification-alpha match given rubric, made basic text file of verificationv2-1.
 Rodger: Verification-Alpha; LaTex-ified verificationv2-1; will plant some cucs for SQL testing
 
 Adam, Jonathan, and Rodger did most of spec beta
