@@ -1,19 +1,37 @@
+Status Report: October 31st, 2014 - Team 2 CS 374 14F
 
-Weekend: 
-Monday:
+Weekend: Worked on verification alpha
+Monday: Verification alpha due; added SQL driver to query test database
 Wednesday:  
-Friday: 
+Friday: Verification alpha (take two) due
 
-People doing things:
+Labor:
 --------------------
 Adam: 
 Ethan: 
 Jonathan: 
-Rodger:
+Rodger: Verification-Alpha; LaTex-ified verificationv2-1; will plant some cucs for SQL testing
 
 Adam, Jonathan, and Rodger did most of spec beta
-
-
-Money, money, money
--------------------
-Karen paid us 1,000 for this week's hours between the 4 of us.
+--------------------------------------------------------
+Meetings:
+    [Oct 30; 7-9 PM] Adam and Jonathan met to discuss verification tools and produce
+verificationv2-1 text document
+--------------------------------------------------------
+TODO list:
+    - implement query functionality for project
+    - implement simple data handler
+        - think about complex data handler implementation
+    - create a test-banner database for Cucumbering
+        - create tables that match the schema in project design
+        - make up enough data to chop up in a nice Cucumber salad
+    - write drivers/features to test querying functionality
+        - write some drivers that require db connection
+        - write other drivers that do NOT require db connection (so that testing
+can be done on local machines that cannot establish db connection)
+    - write drivers/features for simple data handler functionality
+        - write some drivers with db connection and others without
+    - create an 'out' subdirectory in the repo root; send current
+cucumber output to text files in this subdirectory (this is important
+since we will only be able to run some features from the prod/testing server)
+--------------------------------------------------------
