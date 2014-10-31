@@ -1,0 +1,34 @@
+The verification of our project will include the following procedures:
+Black-box testing
+Module Testing
+Integration Testing
+System Testing
+Acceptance Testing
+performance Testing
+User Testing
+Status Reports
+
+These are the ways with which we will implement the aforementioned procedures.
+
+Black Box Testing
+	We will use the testing framework Cucumber for testing all site-related functionality. cucumber can check for expected outputs when given an input or set of inputs. Using Cucumber will allow comprehensive, automated testing of our files. 
+
+Module Testing
+	We will give a complete module inputs and test the output with Cucmber, using the actual classes/functionality of our final product
+
+Integration Testing
+	This project will implement a bottom-up incremental testing approach, testing lower-level classes with drivers before testing against the actual module that contains the lower-level classes, using Cucmber.
+
+System Testing
+	This project will have tests that run over the entire system, simulating input from a user and testing against the expected output.
+
+Acceptance Testing
+	our team will schedule a time with the customer to have the customer use our product and decide if it meets the criteria set out for it.
+
+Performance Testing
+	Our team is reserching the possibility of testing code complexity using a php framework called "PHP Depend". We will use a built-in php method for measuring response time from the cURL library.
+
+GOMS test
+	Our team will predict the actions a user will carry out and estimate the time to execute those, and then measure how long a user takes to complete the task and compare that to our predictions.
+
+Also, status reports are made weekly to record the work that is done each week and how the team is performing.
