@@ -1,15 +1,19 @@
 \begin{description}
   \item[association] The set of courses whose location matches and time duration overlaps a section-change description
-  \item[building] A collection of rooms
-  \item[course] A general description of a class of sections
-  \item[data-handler] An object that executes a scenario using data obtained from the database
-  \item[floating-section] A section that may be potentially moved from either its current time, location or both
+  \item[building] A collection of rooms.  Each building has a set of floors.
+  \item[course] A general description of a class of sections.  Each course has a string (for the course type, such as CS or IT), and a number (such as 101), which can be either a string or an integer.
+  \item[data-handler] An object that executes a scenario using data obtained from the database.  
+  \item[floating-section] A section that may be potentially moved from either its current time, location or both.   This does not mean it can be moved from one instructor to another, nor can the section number change.
+  \item[freshman] A student of Year 1.  It is preferable to move or change freshman classes rather than upperclassman classes, because there is more flexibility.
+  \item[junior] A student of Year 3.  Less flexible than Freshmen and Sophomores, which means they should be changed after Freshmen and Sophomores, but unlike Seniors, it is not critical that they not be moved.
   \item[locked-section] A section that cannot be moved from its current time and location
   \item[professor] An instructor of a course; there is one professor per section
-  \item[office-hours] A time block associated with a professor; a potential conflict item to consider
-  \item[room] The meeting place of a section
+  \item[office-hours] A time block associated with a professor; a potential conflict item to consider.  If an instantiation of a course falls within time allotted to office hours, there is a conflict; this conflict is of less importance than conflicting course instantiations.
+  \item[room] The meeting place of a section. Rooms are assigned to a Building.  Rooms cannot be reassigned, since they do not physically move.
   \item[scenario] A section change operation (e.g. moving a section from one time to another)
-  \item[section] An instantiation of a course
+  \item[section] An instantiation of a course.  The number of sections starts at 01 and increases based on the number of classes that are to be taught for a given course such as CS101: CS101 01, CS101 02, etc.
   \item[section-change description] A tuple that specifies a desired change to a section's time and location.  Non-room changes have a hierarchy; change in a section's day implies change in time.  A change in professor implies change in day and change in time.
-  \item[student] A participant in a section
+  \item[senior]A student of Year 4; due to the priority on graduation, seniors should not be moved unless as an absolute last resort.  Seniors who are in the second sememster of their year absolutely cannot be moved.
+  \item[sophomore]A student of Year 2; not as flexible as Freshmen, but more movable than Juniors and Seniors.
+  \item[student] A participant in a section.  Each student has a unique banner ID.  This banner ID is the key used.  Each student also has a Major, which determines appropriate courses that they can take.  Each student also has a Year: Freshman/1, Sophomore/2, Junior/3, and Senior/4.  Seniors cannot be moved, due to the importance of graduation.  Freshmen take the lowest priority; they should be moved before other classes.
 \end{description}
