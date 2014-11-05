@@ -1,3 +1,10 @@
+--Entities Created: Student, Building, Room, Dow, Professor
+
+--Entities not yet created: Office-Hours-Assignment, Office-Hours, Course, Section
+
+--Foreign keys and other relationships have not been started.
+
+
 /*
 
 This is a more realistic set of tables than the first tests.  
@@ -9,7 +16,7 @@ Tables are created according to the Relationships Beta diagram in the Design fol
 */
 
 DROP TABLE IF EXISTS test.student;
-CREATE TABLE test.student(id INT PRIMARY KEY,fname VARCHAR(20), mi VARCHAR(1),lname VARCHAR(20), classification INT, hours INT);
+CREATE TABLE test.student(id INT PRIMARY KEY,fname VARCHAR(30), mi VARCHAR(1),lname VARCHAR(30), classification INT, hours INT);
 
 /*create a table based on the entity Student:
 
@@ -79,5 +86,31 @@ has-lab (has_lab)
 ---
 
 Since MySQL can't do Boolean variables, we use integers: 0 for False, 1 for True
+
+---
+
+We DO NOT use foreign keys to designate the building.  
+
+A building can have multiple rooms.  The entity Building maps 1:M onto Room.
+
+*/
+
+
+drop table if exists test.professor;
+create table test.professor(id INT PRIMARY KEY, first_name VARCHAR(30), middle_initial VARCHAR(1), last_name VARCHAR(30));
+
+/*creates a table based on the entity Professor:
+id(key) (id)
+first-name (first_name)
+middle-initial (middle_inital)
+last-name (last_name)
+*/
+
+
+/*
+According to the Schema, COURSE is not a "course" as in subject, like CS101, but an instantiation of that subject with an instructor, e.g. CS101-Taught-By-[professor ID]
+
+*/
+
 
 */
