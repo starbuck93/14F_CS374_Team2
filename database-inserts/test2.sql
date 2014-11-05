@@ -2,7 +2,7 @@
 
 -- test.student
 
----note that Ethan's server username is ethan   all lowercase.  Password is Waddle.
+---note that Ethan's server username is ethan   all lowercase.  Password is waddle.
 
 
 DROP TABLE IF EXISTS test.student;
