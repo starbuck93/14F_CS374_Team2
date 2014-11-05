@@ -29,8 +29,10 @@ while (true) {
     }
 
     // print out each row as a comma-separated string
-    for ($i = 0;$i < 3;++$i) {
+    while (true) {
         $row = mysql_fetch_row($result);
+        if ($row === false)
+            break;
         $itemcnt = count($row);
         if ($itemcnt > 0) {
             $rowstr = $row[0];
