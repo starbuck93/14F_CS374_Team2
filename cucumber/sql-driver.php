@@ -1,20 +1,47 @@
 #!/usr/bin/env php
 <?php
 
+# sqltest.php - driver program to test mySQL queries
+#  This program reads queries on its stdin, an SQL query
+# which is sent to the database. The program returns
+# the results of the query line by line where each line
+# contains a comma-separated list of column values. An 
+# arbitrary amount of whitespace may exist between the
+# comma and the next value.
+
+$newlines = array("\n","\r");
 $con = mysql_connect();
 if ($con === false) {
     fwrite(STDERR,"Could not connect to MySQL server\n");
     exit(1);
 }
 
-$query1 = "SELECT * FROM test.student;";
-$result = mysql_query($query1,$con);
-if ($result === false) {
-    fwrite(STDERR,"Bad query: $query1\n");
-    exit(1);
-}
+while (true) {
+    $query = fgets(STDIN);
+    if ($query === false)
+        break;
+    $query = str_replace($newlines,"",$query);
 
-for ($i = 0;$i < 3;++$i)
-    var_dump( mysql_fetch_row($result) );
+    $result = mysql_query($query,$con);
+    if ($result === false) {
+        fwrite(STDERR,"Bad query: $query1\n");
+        continue;
+    }
+
+    // print out each row as a comma-separated string
+    for ($i = 0;$i < 3;++$i) {
+        $row = mysql_fetch_row($result);
+        $itemcnt = count($row);
+        if ($itemcnt > 0) {
+            $rowstr = $row[0];
+            for ($j = 1;$j < $itemcnt;++$j) {
+                $value = $row[$j];
+                $rowstr .= ", $value";
+            }
+        }
+        echo "$rowstr\n";
+    }
+
+}
 
 ?>
