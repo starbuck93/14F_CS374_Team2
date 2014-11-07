@@ -2,15 +2,15 @@ Status Report: November 7th, 2014 - Team 2 CS 374 14F
 
 Weekend: 
 Monday: 
-Wednesday:  
+Wednesday:  We now have some cucumbers too : Adding database inserts in the form of sql files, turned in verification beta
 Friday: 
 
 Labor:
 --------------------
-Adam:
+Adam: 
 Ethan: 
-Jonathan:
-Rodger:
+Jonathan: 
+Rodger: 
 
 
 --------------------------------------------------------
