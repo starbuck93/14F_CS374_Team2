@@ -24,7 +24,7 @@ while (true) {
 
     $result = mysql_query($query,$con);
     if ($result === false) {
-        fwrite(STDERR,"Bad query: $query1\n");
+        fwrite(STDERR,"Bad query: $query\n");
         continue;
     }
 
