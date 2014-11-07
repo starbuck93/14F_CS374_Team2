@@ -1,6 +1,6 @@
---Entities Created: Student, Building, Room, Dow, Professor
+--Entities Created: Student, Building, Room, Dow, Professor, Section, Student-Section, Course
 
---Entities not yet created: Office-Hours-Assignment, Office-Hours, Course, Section
+--Entities not yet created: Office-Hours-Assignment, Office-Hours, 
 
 --Foreign keys and other relationships have not been started.
 
@@ -112,5 +112,39 @@ According to the Schema, COURSE is not a "course" as in subject, like CS101, but
 
 */
 
+--time format will be an integer version Military/Internation time.
+--for example, 3 am is 300, noon is 1200, 1:00 PM is 1300, midnight is 0.
+drop table if exists test.student-section;
+create table test.student-section (studentID INT, sectionID INT);
+/*create the entity student-section, the students in each given section, with the following attributes:
+studentID 
+sectionID
+--a student takes multiple courses and thus multiple sections, so the same studentID will appear more than once.  Therefore, it can't be a primary key.
+*/
+
+
+drop table if exists test.section;
+create table test.section(sectionID INT PRIMARY KEY, crn INT, section_number INT, time INT, duration INT, DOW VARCHAR(7), room_id INT);
+/*
+THe sections for each course, with the following attributes:
+ID
+course ID (CRN)
+section_number
+time
+duration
+Days Of Week on which the section meets
+room ID (room_ID)
+*/
+
+drop table if exists test.course;
+create table test.course(crn INT PRIMARY KEY, department VARCHAR(20), course_number INT, professor_id INT, name VARCHAR(30) );
+
+
+/*Creates the entity Course, with the following attributes:
+course ID (crn)
+department
+course_number (such as 101, for the course CS 101)
+professor_id (ID of the instructor, from entity Professor
+course name (name)
 
 */
