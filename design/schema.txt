@@ -44,6 +44,7 @@ section
 -------
 crn (key)               --section ID number
 professor-id
+course-id		--needs to map to a course.
 time                    --start time in integer minutes since midnight 
 duration                --integer minutes
 dow                     --string (for example: "M" "MWF" "MW" "TR")
@@ -57,15 +58,11 @@ section-id  (key)        |
 office-hours
 ------------
 id (key)
+professor_id		--an office_hours can only have one prof, so no need for an intersection table
 time                    --start time
 duration                --integer minutes
 dow                     --string: "M" "MWF" "MW" "TR"
-room-id                 --(maps to building)
 
-office-hours-assignment            --intersection data for office-hours and professor
------------------------
-professor-id                            
-office-hours-id (key)     -- this MUST be sole primary key so that only one professor may be assigned to an office-hours entity
 
 building
 --------
