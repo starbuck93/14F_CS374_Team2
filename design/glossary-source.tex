@@ -13,7 +13,14 @@
   \item[scenario] A section change operation (e.g. moving a section from one time to another)
   \item[section] An instantiation of a course.  The number of sections starts at 01 and increases based on the number of classes that are to be taught for a given course such as CS101: CS101 01, CS101 02, etc.
   \item[section-change description] A tuple that specifies a desired change to a section's time and location.  Non-room changes have a hierarchy; change in a section's day implies change in time.  A change in professor implies change in day and change in time.
-  \item[senior]A student of Year 4; due to the priority on graduation, seniors should not be moved unless as an absolute last resort.  Seniors who are in the second sememster of their year absolutely cannot be moved.
+\item[semester code]A six-character string for the semester in an academic year represented by yyyynn.   An academic year starts on the Fall semester of the current year; Fall 2014 is the start of the 2015 academic year.  For nn, 10 is the fall semester, 20 is the spring semester and 30 is the summer semester.
+A conflict only occurs on office hours or course instantiations with the same semester code.
+examples:
+For Fall 2014 courses, the semester code is 201510
+The Spring 2015 semester code is 201520
+The Summer 2015 semester code is 201530
+
+ \item[senior]A student of Year 4; due to the priority on graduation, seniors should not be moved unless as an absolute last resort.  Seniors who are in the second sememster of their year absolutely cannot be moved.
   \item[sophomore]A student of Year 2; not as flexible as Freshmen, but more movable than Juniors and Seniors.
   \item[student] A participant in a section.  Each student has a unique banner ID.  This banner ID is the key used.  Each student also has a Major, which determines appropriate courses that they can take.  Each student also has a Year: Freshman/1, Sophomore/2, Junior/3, and Senior/4.  Seniors cannot be moved, due to the importance of graduation.  Freshmen take the lowest priority; they should be moved before other classes.
 \end{description}
