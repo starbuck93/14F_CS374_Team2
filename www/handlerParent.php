@@ -1,15 +1,14 @@
 <?php
-
-	require_once(DBQuery.php);
+	//echo("about to require Q");
+	require_once("DBQuery.php");
+	//echo("required Q");
 	class HandlerParent{
 
-		private static $Qobj;
-
-		function __construct(){
-			self::Qobj=new DBQuery();
-		}
+		protected static $Qobj;
 		
-		public virtual function handleQuery();
-	}
+		static function init(){
+			self::$Qobj=new DBQuery();
+		}
 
-?>
+		//public abstract function handleQuery();
+	}

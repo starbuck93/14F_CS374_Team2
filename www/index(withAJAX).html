@@ -35,10 +35,7 @@
 	{
 	  if (xmlhttp.readyState==4 && xmlhttp.status==200)
 	    {
-	  	alert(xmlhttp.responseText);
-	    }
-	    else{
-	    	alert("aarg");
+	  	document.getElementById("out").innerHTML=xmlhttp.responseText;
 	    }
 	}
   	xmlhttp.open("GET", "test.php?time="+str,true);

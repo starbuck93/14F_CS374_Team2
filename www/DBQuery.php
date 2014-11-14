@@ -14,8 +14,8 @@
 
 		public function executeQuery(){
 			$servername = "localhost";
-			$username = "username";
-			$password = "password";
+			$username = "root";
+			$password = "mylptp14";
 			$dbName = "test";
 
 			// Create connection. I chose the "procedural approach because other approaches were not back-compatible with old php versions
@@ -25,20 +25,18 @@
 			if (!$conn) {
 			    die("Connection failed: " . mysqli_connect_error());
 			}
-			
-			$tempResult=mysqli_query($conn, $sql));
+			//echo("\n your query= ".$this->query."\n");
+			$tempResult=mysqli_query($conn, $this->query);
 			$i=0;
 			while($row = mysqli_fetch_assoc($tempResult)) {		
-				$this->result[i]=$row;
-				i++;
+				$this->result[$i]=$row;
+				$i++;
 			}
 		
-			msqli_close($conn);
+			mysqli_close($conn);
 
 		}
 		public function get_result(){
 			return $this->result;
 		}
 	}
-
-?>

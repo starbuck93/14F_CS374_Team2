@@ -1,13 +1,16 @@
 <html>
 <body>
 <?php
-	
-	//require_once(SimpleHandler.php);
-	echo("getting somewhere");
+	//echo("about to require");
+	require_once("SimpleHandler.php");
+	//echo("past require");
 	$getCourses = new SimpleHandler();
-	$inTime=$_REQUEST['time'];
-	$getCourses->setTime($inTime);
+	$getCourses::init();
+	$inTime=$_GET['time'];
+	$getCourses->set_time($inTime);
 	$getCourses->handleQuery();
+	//echo("time is ".$inTime."\n");
+	//echo("made it through");
 
 ?>
 </body>
