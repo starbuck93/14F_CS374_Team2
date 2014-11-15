@@ -13,7 +13,7 @@
   \item[scenario] A section change operation (e.g. moving a section from one time to another)
   \item[section] An instantiation of a course.  The number of sections starts at 01 and increases based on the number of classes that are to be taught for a given course such as CS101: CS101 01, CS101 02, etc.
   \item[section-change description] A tuple that specifies a desired change to a section's time and location.  Non-room changes have a hierarchy; change in a section's day implies change in time.  A change in professor implies change in day and change in time.
-\item[semester code]A six-character string for the semester in an academic year represented by yyyynn.   An academic year starts on the Fall semester of the current year; Fall 2014 is the start of the 2015 academic year.  For nn, 10 is the fall semester, 20 is the spring semester and 30 is the summer semester.
+\item[semester code]A six-digit sequence for the semester in an academic year represented by yyyynn.   An academic year starts on the Fall semester of the current year; Fall 2014 is the start of the 2015 academic year.  For nn, 10 is the fall semester, 20 is the spring semester and 30 is the summer semester.
 A conflict only occurs on office hours or course instantiations with the same semester code.
 examples:
 For Fall 2014 courses, the semester code is 201510
