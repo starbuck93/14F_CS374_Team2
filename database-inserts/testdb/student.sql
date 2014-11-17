@@ -3,9 +3,10 @@ CREATE TABLE test.student(id INT PRIMARY KEY,fname VARCHAR(30), mi VARCHAR(1),ln
 
 
 INSERT INTO test.student (id,fname, mi, lname, classification, hours) VALUES
-	(1,"Roger", "A","Gee", 4, 0),
-	(2,"Jonathan", "A","Schouse", 4, 0),
-	(3,"Adam", "A", "Starbuck", 4, 0),
-	(4,"Ethan", "A",  "Waddle", 4, 0),
-	(5,"Fresh","M","An",1,0),
-	(6,"Soph","M","Ore",2,0);
+	(1,"Roger", "P","Gee", 3, 65),
+	(2,"Jonathan", "L","Schouse", 4,85),
+	(3,"Adam", "D", "Starbuck", 3, 65),
+	(4,"Ethan", "W",  "Waddle", 4, 85),
+	(5,"Bob","Q","Sagot",1,10),
+	(6,"Brent","R","Neil",2,11),
+    (7,"Ruth","F","Jenkins",1,9);
