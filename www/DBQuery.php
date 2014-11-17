@@ -15,7 +15,7 @@
 		public function executeQuery(){
 			$servername = "localhost";
 			$username = "root";
-			$password = "mylptp14";
+			$password = "";
 			$dbName = "test";
 
 			// Create connection. I chose the "procedural approach because other approaches were not back-compatible with old php versions
