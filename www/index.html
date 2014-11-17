@@ -26,32 +26,40 @@
 			#nav li {
 				display: block;
 				width: 100%;
-			}
+			}}
+		#div reports {
+		background-color: #FF00FF;
+		}
   </style>
 
-	<title>Hello, World</title>
+	<title>Course Conflicts</title>
 
 </head>
 <body>
+<center>
   <ul id="nav">
 	<li><a href="#">Main</a></li>
 	<li><a href="#" >Browse Schedules</a></li>
 	<li><a href="#">Advanced Conflicts Finder</a></li>
 	<li><a href="aboutus.html">About Us</a></li>
   </ul>
-
+<br>
 	<h1>Course Conflict Tester</h1>
 	<h3>Team 2: Gee, Shouse, Starbuck, Waddle</h3>
-    <p>Instructions: blee blah blee blah blee blah blee blah blee blah blee blah </p>
+    <!--
+	<p>Instructions: blee blah blee blah blee blah blee blah blee blah blee blah </p>
 	<mark>After the user hits go, PHP runs in the background to find conflicts that involve the most <br>
 	(and most important) students and outputs data beneath here.</mark>
+	
 	<br><br>
-    <form action="#">CRN Number
-      <input type="text" name="fname">
-    </form>
-	<br>
-	<select>
-      <option>Select time slot</option>
+	!-->
+    <form name="conflictFinder" target=_top action="script.php">
+	<label>CRN</label>
+	<input type="text" value="" required=true maxlength=5 name ="CRN">
+    
+	<label>New Time</label>
+	<select required=true form="conflictFinder">
+      <option></option>
       <option>I don't care</option>
       <option>1:00pm</option>
       <option>2:00pm</option>
@@ -59,9 +67,25 @@
       <option>4:00pm</option>
       <option>5:00pm</option>
     </select>
-	<button type="button" onclick="alert('Hello world!')">Run Conflicts</button>
+	<br>
+	<input type="checkbox" name="dow" value="M">M
+	<input type="checkbox" name="dow" value="W">W
+	<input type="checkbox" name="dow" value="F">F
+	<br>
+	<input type="checkbox" name="dow" value="T">T
+	<input type="checkbox" name="dow" value="T">R
+	<br>
+	<input type="submit" name="submitButton">
+	</form>
+	<!--<button type="button" onclick="alert('Hello world!')">Run Conflicts</button> !-->
+    
+	
+</center>
 
-    <h2>Conflicts Report:</h2>
+<div id="report">
+
+<!--This section will show up after the user hits "SUBMIT"-->
+	<h2>Conflicts Report:</h2>
 
     <ul>
       <li>Conflict (most optimal, least conflicts)</li>
@@ -73,9 +97,7 @@
       <li>...</li>
 	  <li>Conflict least optimal, most conflicts)</li>
     </ul>
-
-
-
+</div>
 </body>
 
 </html>
