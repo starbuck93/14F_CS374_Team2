@@ -14,4 +14,5 @@ INSERT INTO test.student_section (student_id, section_id) VALUES
 	(3,15004),
 	(5,15004),
 	(6,15004),
-	(6,15001);
+	(6,15001),
+    (7,15005);

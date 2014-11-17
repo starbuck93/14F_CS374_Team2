@@ -37,6 +37,14 @@ class DBQuery {
         return $this->currow;
     }
 
+    function get_row_cnt() {
+        return $this->rowCnt;
+    }
+
+    function get_field_cnt() {
+        return $this->fieldCnt;
+    }
+
     function htmlitize($showFields = true) {
         $content = "";
         if ($showFields) {

@@ -10,7 +10,7 @@
     <p>
         <?php
 	        include_once("{$_SERVER['DOCUMENT_ROOT']}/php-bin/libquery.php");
-	        $query = new DBQuery("SELECT * FROM test.student");
+	        $query = new DBQuery("SELECT * FROM test.course");
 	        echo $query->htmlitize();
         ?>
     </p>
