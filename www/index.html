@@ -1,67 +1,33 @@
 <html>
-<head>
-  <style>
-		#nav {
-			display: table;
-			height: 50px;
-			width: 75%;
-			font-size: 30px;
-			font-size: 2vw;
-		}
+    <head>
+        <title> Banner Main </title>
 
-		#nav li {
-			display: table-cell;
-			height: 10px;
-			width: 25%;  /* (100 / numItems)% */
-			line-height: 50px;
-			text-align: center;
-			background: #ddd;
-			border-right: 1px solid #fff;
-			white-space: nowrap;
-		}​
+        <style>
+            .colform {
+                float:left;
+            }
+        </style>
+    </head>
 
-		@media (max-width: 767px) {
-			#nav li {
-				display: block;
-				width: 100%;
-			}
-  </style>
+    <body>
+        <h1> Banner Main </h1>
 
-	<title>Hello, World</title>
+        <form action="banner/student-schedule.php" method="get">
+            Banner ID: <input type="text" name="bannerid" />
+            <input type="submit" value="Display Schedule"/>
+        </form>
 
-</head>
+        <hr>
 
-<body>
-  <ul id="nav">
-	<li><a href="#">Main</a></li>
-	<li><a href="#" >Browse Schedules</a></li>
-	<li><a href="#">Advanced Conflicts Finder</a></li>
-	<li><a href="aboutus.html">About Us</a></li>
-  </ul>
-
-	<h1>Course Conflict Tester</h1>
-	<h3>Team 2: Gee, Shouse, Starbuck, Waddle</h3>
-    <p>Instructions: blee blah blee blah blee blah blee blah blee blah blee blah </p>
-	<mark>After the user hits go, PHP runs in the background to find conflicts that involve the most <br>
-	(and most important) students and outputs data beneath here.</mark>
-	<br><br>
-    <form action="#">CRN Number
-      <input type="text" name="fname">
-    </form>
-	<br>
-	<select id="timeSelect">
-      <option>Select time slot</option>
-      <option>I don't care</option>
-      <option value="13:00" >1:00pm</option>
-      <option value="14:00" >2:00pm</option>
-      <option value="15:00" >3:00pm</option>
-      <option value="16:00" >4:00pm</option>
-      <option value="17:00" >5:00pm</option>
-    </select>
-	<button type="button" onclick="document.location.href='test.php'">Find Classes</button>
-
-    <h2>Conflicts Report:</h2>
-
-</body>
+        <form action="banner/student.php" method="get" class="colform">
+            <input type="submit" value="View Students"/>
+        </form>
+        <form action="banner/course.php" method="get" class="colform">
+            <input type="submit" value="View Courses"/>
+        </form>
+        <form action="banner/section.php" method="get" class="colform">
+            <input type="submit" value="View Sections"/>
+        </form>
+    </body>
 
 </html>
