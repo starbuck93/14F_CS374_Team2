@@ -1,21 +1,32 @@
 Status Report: November 21st, 2014 - Team 2 CS 374 14F
 
-Weekend: 
-Monday: 
-Wednesday:  We now have some cucumbers too : Adding database inserts in the form of sql files, turned in verification beta
+Weekend: Group 2 signed up for and attended Hackathon.  Our featured app for Hackathon was this project.  Small additions were made over the weekend.
+Monday: Test website, with ability to retrieve course information, was demonstrated in class.  This is distinct from the first test website (the "about us" link that serves as a placeholder.
+Wednesday:  
 Friday: 
 
 Labor:
 --------------------
-Adam: 
-Ethan: 
-Jonathan: 
-Rodger: 
+Adam: PHP components added
+Ethan: Minor edits and typo fixes in the PHP code added.  Queries for Thursday should now output the value of R, the variable for Thursday, not T, the variable for Tuesday.
+Jonathan: PHP components added
+Rodger: Ruby components added.  
 
+Wrote a php script to extract the information from the CSV file and create a 32,000-line series of SQL tables from that CSV file.  This means we can now work with the data given by the instructor, not just the test data and SQL tables we created to match our schema.
+
+This php script was demonstrated after class on November 19.
+
+Edits were made to this SQL version of the original data, including the addition of queries and changes in table names.  Additional SQL code was added to limit the (very large) output during testing.
 
 --------------------------------------------------------
 Meetings:
+November 19: held improptu half-hour meeting after class at 2:50.  
 
+Outcome: 
+
+Thanks to Jonathan and Adam, we resolved several merge issues with our master directory.  All local directories are now up to date, including the status report folder.
+
+The 
 --------------------------------------------------------
 TODO list:
     - implement query functionality for project
@@ -36,13 +47,4 @@ since we will only be able to run some features from the prod/testing server)
 --------------------------------------------------------
 
 
-[Text will be added later.]
 
-
-Shouse and Gee covered PHP last weekend.
-
-Additions were also made during the 48-hour Hackathon competition, in which this project was Group 2's app entry.  Shouse, Gee and Waddle were able to attend.
-
-
-
-"People don't go because they're accredited.  People don't go the MIT lab because it's accredited.  People go there because it's awesome."
