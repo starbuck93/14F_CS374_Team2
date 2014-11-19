@@ -12,70 +12,61 @@ Entity List:
  professor
  course
  section
- office-hours
+ student-section
  building
  room
 
 student
 -------
-id (key)                        --Banner id
-first-name
-middle-initial
-last-name
-classification
-hours
+id (key)                        --Banner id                       [Banner ID]
+first-name                                                        [First Name]
+middle-name                                                       [Middle Name]
+last-name                                                         [Last Name]
+classification                  --class code; one of FR SO JR SR  [Class Code]
 
 professor
 ---------
-id (key)
-first-name
-middle-initial
-last-name
+id (key)                --self-generated
+first-name              [Instructor Name:part]
+last-name               [Instructor Name:part]
 
 course
 ------
-course-id (key)
-department              --e.g. CS, IT, or MATH
-number                  --e.g. 120, 221, or 331
-name                    --"Design and Analysis of Algorithms"
-credit-hours
+id (key)                --self-generated
+subject-code            --e.g. CS, IT, or MATH          [Subject Code]
+number                  --e.g. 120, 221, or 331         [Course Number]
+title                   --"Design and Analysis of Algorithms"   [Course Title]
+credit-hours                                                    [Credit Hours]
+type                    --"LEC", "LAB", "WEB"                   [Schd Code1]
 
 section
 -------
-crn (key)               --section ID number
-professor-id
-course-id		--needs to map to a course.
-time                    --start time in integer minutes since midnight 
-duration                --integer minutes
-dow                     --string (for example: "M" "MWF" "MW" "TR")
-room-id                 --(will map to building)
+id (key)                --self-generated
+crn                     --course ID number                      [CRN]
+term-code               --term ID number                        [Term Code]
+course-id		--maps to a course; self-generated
+professor-id            --maps to a professor entity; self-generated
+begin_time              --integer hour in military time         [Begin Time 1]
+end_time                --integer minutes                       [End Time1]
+dow                     --string (for example: "M" "MWF" "MW" "TR"); computed from [Monday Ind1]...[Sunday Ind1]
+room-id                 --(will map to building); self-generated
 
 student-section                     --intersection data for student and section
 --------------
 student-id (key)        --dual primary key
 section-id  (key)        |
 
-office-hours
-------------
-id (key)
-professor_id		--an office_hours can only have one prof, so no need for an intersection table
-time                    --start time
-duration                --integer minutes
-dow                     --string: "M" "MWF" "MW" "TR"
-
-
 building
 --------
 id (key)
-name                    --full name: "Mabee Business Building"
-abbrv                   --abbreviation: MBB
+code                    --abbreviation: MBB                     [Bldg Code1]
+description             --full name: "Mabee Business Building"  [Bldg Desc1]
 
 room
 ----
 id (key)
-number
-building-id
-has-lab                 --Boolean
+code                    --this is a string                      [Room Code1]
+building-id             --self-generated
 
 --------------------------------------------------------------------------------
 B. Relationships
@@ -97,7 +88,6 @@ Entity List:
 Intersection Data:
 ------------------
 student-section
-office-hours-assignment
 
 STUDENT has many SECTIONs                   SECTION has many STUDENTs
 PROFESSOR has many SECTIONs                 SECTION has a PROFESSOR
