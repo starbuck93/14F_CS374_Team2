@@ -1,0 +1,48 @@
+Status Report: November 21st, 2014 - Team 2 CS 374 14F
+
+Weekend: 
+Monday: 
+Wednesday:  We now have some cucumbers too : Adding database inserts in the form of sql files, turned in verification beta
+Friday: 
+
+Labor:
+--------------------
+Adam: 
+Ethan: 
+Jonathan: 
+Rodger: 
+
+
+--------------------------------------------------------
+Meetings:
+
+--------------------------------------------------------
+TODO list:
+    - implement query functionality for project
+    - implement simple data handler
+        - think about complex data handler implementation
+    - create a test-banner database for Cucumbering
+        - create tables that match the schema in project design
+        - make up enough data to chop up in a nice Cucumber salad
+    - write drivers/features to test querying functionality
+        - write some drivers that require db connection
+        - write other drivers that do NOT require db connection (so that testing
+can be done on local machines that cannot establish db connection)
+    - write drivers/features for simple data handler functionality
+        - write some drivers with db connection and others without
+    - create an 'out' subdirectory in the repo root; send current
+cucumber output to text files in this subdirectory (this is important
+since we will only be able to run some features from the prod/testing server)
+--------------------------------------------------------
+
+
+[Text will be added later.]
+
+
+Shouse and Gee covered PHP last weekend.
+
+Additions were also made during the 48-hour Hackathon competition, in which this project was Group 2's app entry.  Shouse, Gee and Waddle were able to attend.
+
+
+
+"People don't go because they're accredited.  People don't go the MIT lab because it's accredited.  People go there because it's awesome."
