@@ -31,6 +31,13 @@ function add_field(&$entity,$member,array $row,$fld) {
         $entity->$member = extract_field($row,$fld);
 }
 
+function check_item(&$str,$isString) {
+    if ($isString)
+        $str = str_replace("\"","\\\"",str_replace("'","\\'",$str));
+    else if ($str == '')
+        $str = "0";
+}
+
 function generate_table($name,array $fields,array $types,$primary_key) {
     assert(count($fields) == count($types));
     assert(!is_array($primary_key) || count($primary_key)>=1);
@@ -62,13 +69,17 @@ function generate_content($name,array $table,array $types,$primaryKey,$addKey = 
         $data = array_values($data);
         assert(count($data) == count($types) && count($data)>=1);
         $r = "";
-        if ($types[0] != 'INT')
+        $isString = $types[0] != 'INT';
+        check_item($data[0],$isString);
+        if ($isString)
             $r .= "\"{$data[0]}\"";
         else
             $r .= $data[0];
         for ($i = 1;$i < count($data);++$i) {
             $r .= ", ";
-            if ($types[$i] != 'INT')
+            $isString = $types[$i] != 'INT';
+            check_item($data[$i],$isString);
+            if ($isString)
                 $r .= "\"{$data[$i]}\"";
             else
                 $r .= $data[$i];
@@ -103,7 +114,7 @@ $student_section_table = array(); // key: "student_id:section_id"
 // create arrays of SQL type information for each entity
 $student_types = array('INT','VARCHAR(30)','VARCHAR(30)','VARCHAR(30)','VARCHAR(2)');
 $professor_types = array('INT','VARCHAR(30)','VARCHAR(30)');
-$course_types = array('INT','VARCHAR(10)','VARCHAR(10)','VARCHAR(120)','INT','VARCHAR(10)');
+$course_types = array('INT','VARCHAR(10)','VARCHAR(10)','VARCHAR(120)','VARCHAR(10)');
 $section_types = array('INT','INT','INT','INT','INT','INT','INT','VARCHAR(10)','INT');
 $building_types = array('INT','VARCHAR(10)','VARCHAR(120)');
 $room_types = array('INT','VARCHAR(25)','INT');
@@ -146,7 +157,7 @@ while (($row = get_row()) !== false) {
     add_field($course,'subject_code',$row,'Subject Code');
     add_field($course,'number',$row,'Course Number');
     add_field($course,'title',$row,'Course Title');
-    add_field($course,'credit_hours',$row,'Credit Hours');
+    //add_field($course,'credit_hours',$row,'Credit Hours');
     add_field($course,'type',$row,'Schd Code1');
     $course_key = array_search($course,$course_table);
     if ($course_key === false) {
@@ -207,6 +218,7 @@ unset($building_table[0]);
 unset($room_table[0]);
 
 // generate SQL and write it to stdout
+fwrite(STDOUT,"USE banner;\n");
 generate_content('student',$student_table,$student_types,'id');
 generate_content('professor',$professor_table,$professor_types,'id');
 generate_content('course',$course_table,$course_types,'id');

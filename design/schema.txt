@@ -36,7 +36,6 @@ id (key)                --self-generated
 subject-code            --e.g. CS, IT, or MATH          [Subject Code]
 number                  --e.g. 120, 221, or 331         [Course Number]
 title                   --"Design and Analysis of Algorithms"   [Course Title]
-credit-hours                                                    [Credit Hours]
 type                    --"LEC", "LAB", "WEB"                   [Schd Code1]
 
 section
