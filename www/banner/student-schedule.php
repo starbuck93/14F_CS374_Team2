@@ -18,7 +18,7 @@
                     exit(0);
                 }
 
-                $student = new DBQuery("SELECT lname, fname FROM test.student WHERE test.student.id = $bannerid;");
+                $student = new DBQuery("SELECT last_name, first_name FROM banner.student WHERE banner.student.id = $bannerid;");
                 if ($student->get_row_cnt() == 0) {
                     echo "<p>No results for Banner ID=$bannerid</p>";
                     exit(0);
@@ -27,10 +27,10 @@
 
                 echo "<h1>Schedule listing for {$row[0]}, {$row[1]} [$bannerid]</h1>";
 
-                $schedule = new DBQuery("SELECT department, course_number, name FROM test.student_section INNER JOIN test.section ON
-test.section.crn = test.student_section.section_id INNER JOIN test.course ON
-test.section.course_id = test.course.id INNER JOIN test.student ON
-test.student_section.student_id = test.student.id WHERE test.student_section.student_id = $bannerid;");
+                $schedule = new DBQuery("SELECT subject_code, number, title, begin_time, end_time FROM banner.student_section INNER JOIN
+banner.section ON banner.section.id = banner.student_section.section_id INNER JOIN banner.course ON
+banner.section.course_id = banner.course.id INNER JOIN banner.student ON
+banner.student_section.student_id = banner.student.id WHERE banner.student_section.student_id = $bannerid;");
 
                 echo $schedule->htmlitize();
             }
