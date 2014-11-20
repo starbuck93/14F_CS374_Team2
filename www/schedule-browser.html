@@ -1,0 +1,38 @@
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title> Banner - Student Schedule Browser </title>
+
+    <script>
+    function getSchedule() {
+        var request = new XMLHttpRequest;
+        var bannerid = document.getElementById("bannerinput").value;
+        request.onreadystatechange = function() {
+            if (request.readyState==4 && request.status==200) {
+                document.getElementById("scheduleDisplay").innerHTML = request.responseText;
+            }
+        }
+        request.open("GET","banner/student-schedule.php?bannerid="+bannerid,true);
+        request.send();
+    }
+    </script>
+  </head>
+
+  <body>
+    <center>
+      <ul id="nav">
+	<li><a href="index.html">Main</a></li>
+	<li><a href="schedule-browser.html">Browse Schedules</a></li>
+	<li><a href="conflicts.html">Advanced Conflicts Finder</a></li>
+	<li><a href="aboutus.html">About Us</a></li>
+      </ul>
+      <br>
+      <h1> Student Schedule Browser </h1>
+      Banner ID: <input type="text" id="bannerinput" name="bannerid" />
+      <button type="button" onclick="getSchedule()">Display Schedule</button>
+    </center>
+    <hr>
+    <!-- display student schedule output in this division -->
+    <div id="scheduleDisplay"></div>
+  </body>
+</html>

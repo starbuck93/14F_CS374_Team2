@@ -1,0 +1,29 @@
+#nav {
+    display: table;
+    height: 50px;
+    width: 75%;
+    font-size: 30px;
+    font-size: 2vw;
+}
+
+#nav li {
+    display: table-cell;
+    height: 10px;
+    width: 25%;  /* (100 / numItems)% */
+    line-height: 50px;
+    text-align: center;
+    background: #ddd;
+    border-right: 1px solid #fff;
+    white-space: nowrap;
+}​
+
+@media (max-width: 767px) {
+    #nav li {
+        display: block;
+        width: 100%;
+    }
+}
+
+.colform {
+    float:left;
+}
