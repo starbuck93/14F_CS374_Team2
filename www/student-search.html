@@ -1,0 +1,45 @@
+<html>
+
+  <head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+    <title> Banner - Student Search </title>
+
+    <script>
+    function doSearch() {
+	var request = new XMLHttpRequest;
+	var ct1 = document.getElementById("ct1").value;
+	var c1 = document.getElementById("c1").value;
+	var ct2 = document.getElementById("ct2").value;
+	var c2 = document.getElementById("c2").value;
+	var ct3 = document.getElementById("ct3").value;
+	var c3 = document.getElementById("c3").value;
+
+	request.onreadystatechange = function() {
+	    if (request.readyState==4 && request.status==200) {
+		document.getElementById("output").innerHTML = request.responseText;
+	    }
+	}
+	request.open("GET","banner/student-search.php?ct1="+ct1+"&c1="+c1+"&ct2="+ct2+"&c2="+c2+"&ct3="+ct3+"&c3="+c3,true);
+	request.send();
+    }
+    </script>
+  </head>
+
+  <body>
+    <a href="index.html"> Banner Main </a>
+    <p>
+      Enter at most three classes that the student takes. To narrow search results, choose courses that
+      vary or that do not contain very many students. In the first box, enter the course subject
+      code (e.g. CS, IT, MATH). In the next box, enter the course number (e.g. 374, 211, 377).
+    </p>
+    <center>
+      Course 1: <input type="text" id="ct1" /> <input type="text" id="c1" /> <br />
+      Course 2: <input type="text" id="ct2" /> <input type="text" id="c2" /> <br />
+      Course 3: <input type="text" id="ct3" /> <input type="text" id="c3" /> <br />
+      <button type="button" onclick="doSearch()" class="pure-button pure-button-primary">Find Students</button>
+    </center>
+
+    <div id="output"></div>
+  </body>
+</html>
