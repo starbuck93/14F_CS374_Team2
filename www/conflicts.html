@@ -1,21 +1,45 @@
 <html>
   <head>
     <link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
     <title> Conflict Calculator </title>
   </head>
 
   <body>
     <center>
-      <ul id="nav">
+      <ul class="pure-menu pure-menu-open pure-menu-horizontal">
 	<li><a href="index.html">Main</a></li>
 	<li><a href="schedule-browser.html">Browse Schedules</a></li>
-	<li><a href="conflicts.html">Conflict Calculator</a></li>
+	<li class="pure-menu-selected"><a href="conflicts.html">Conflict Calculator</a></li>
 	<li><a href="aboutus.html">About Us</a></li>
       </ul>
       <br>
       <h1>Conflict Calculator</h1>
-    </center>
     <hr>
+	<form class = "pure-form" name="conflictFinder" action="banner/conflicts.php">
+	<label>CRN</label>
+	<input type="text" required=true maxlength=5 name ="CRN" placeholder="12345">
+    
+	<label>New Time</label>
+	<select required=true form="conflictFinder">
+      <option></option>
+      <option>1:00pm</option>
+      <option>2:00pm</option>
+      <option>3:00pm</option>
+      <option>4:00pm</option>
+      <option>5:00pm</option>
+    </select>
+	
+	New Day (optional) 
+	<input type="checkbox" name="dow" value="M">M
+	<input type="checkbox" name="dow" value="T">T
+	<input type="checkbox" name="dow" value="W">W
+	<input type="checkbox" name="dow" value="R">R
+	<input type="checkbox" name="dow" value="F">F
+
+	<input type="submit" class="pure-button pure-button-primary" name="submitButton">
+	</form>
+    </center>
 
   </body>
 </html>
