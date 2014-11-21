@@ -2,15 +2,18 @@ Status Report: November 21st, 2014 - Team 2 CS 374 14F
 
 Weekend: Group 2 signed up for and attended Hackathon.  Our featured app for Hackathon was this project.  Small additions were made over the weekend.
 Monday: Test website, with ability to retrieve course information, was demonstrated in class.  This is distinct from the first test website (the "about us" link that serves as a placeholder.
-Wednesday:  
+
+Wednesday:  The test website is now able to retrieve the data initially given in the CSV.  It now has the ability to show all course instantiations taken by a given student when the search bar is given a valid student ID.
+
 Friday: 
 
 Labor:
 --------------------
-Adam: PHP components added
+
 Ethan: Minor edits and typo fixes in the PHP code added.  Queries for Thursday should now output the value of R, the variable for Thursday, not T, the variable for Tuesday.
-Jonathan: PHP components added
-Rodger: Ruby components added.  
+Adam: Created php code, for the banner directory, especially  conflicts.php which handles form data input to get a database query.  Created a brand new CSS stylesheet (previously we only had html) or for the websstie, giving it significant updates.
+Rodger: Added navigation features, the ability to add pages, and other significant updates to the website.  Modified php scripts for banner to use the banner database.  Made fixes to the php file sqlgen, added a banner sql for the main database insert file, and made appropriate modifications to the schema.
+Jonathan: Fixed the merge conflicts from our additions.  Updated repositories with code from his personal dev folder.
 
 Wrote a php script to extract the information from the CSV file and create a 32,000-line series of SQL tables from that CSV file.  This means we can now work with the data given by the instructor, not just the test data and SQL tables we created to match our schema.
 
