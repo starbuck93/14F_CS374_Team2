@@ -16,11 +16,30 @@
       <br>
       <h1>Conflict Calculator</h1>
     <hr>
-	<form class = "pure-form" name="conflictFinder" action="banner/conflicts.php">
-	<label>CRN</label>
-	<input type="text" required=true maxlength=5 name ="CRN" placeholder="12345">
+
+
+	<form class="pure-form" name="conflictFinder" action="banner/conflicts.php" method="POST">
+	CRN
+	<input autofocus=on type="text" required maxlength=5 name ="CRN" placeholder="12345">
     
-	<label>New Time</label>
+	New Time
+	<input type="text" name="newTime" placeholder="1300, or 1:00PM" required>
+
+	New Day (optional) 
+	<input type="checkbox" name="M">M
+	<input type="checkbox" name="T">T
+	<input type="checkbox" name="W">W
+	<input type="checkbox" name="R">R
+	<input type="checkbox" name="F">F
+
+	<input type="submit" class="pure-button pure-button-primary" name="submitButton">
+	</form>
+    </center>
+
+  </body>
+<!--
+
+<label>New Time</label>
 	<select required=true form="conflictFinder">
       <option></option>
       <option>1:00pm</option>
@@ -29,17 +48,7 @@
       <option>4:00pm</option>
       <option>5:00pm</option>
     </select>
-	
-	New Day (optional) 
-	<input type="checkbox" name="dow" value="M">M
-	<input type="checkbox" name="dow" value="T">T
-	<input type="checkbox" name="dow" value="W">W
-	<input type="checkbox" name="dow" value="R">R
-	<input type="checkbox" name="dow" value="F">F
 
-	<input type="submit" class="pure-button pure-button-primary" name="submitButton">
-	</form>
-    </center>
-
-  </body>
+-->
+  
 </html>
