@@ -1,7 +1,7 @@
 <html>
 
   <head>
-
+    <title> Banner - Student Finder </title>
   </head>
   <body>
 

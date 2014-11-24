@@ -26,6 +26,10 @@ class DBQuery {
         $this->rowIter = 0; // point to latest row in result
     }
 
+    function is_empty() {
+        return $this->rowCnt == 0;
+    }
+
     function get_next_row() {
         $this->currow = mysql_fetch_row($this->result);
         if ($this->currow !== false)
@@ -43,6 +47,13 @@ class DBQuery {
 
     function get_field_cnt() {
         return $this->fieldCnt;
+    }
+
+    function reset_iterators() {
+        if ($this->rowCnt > 0) {
+            $this->rowIter = 0;
+            mysql_data_seek($this->result,0);
+        }
     }
 
     function htmlitize($showFields = true) {

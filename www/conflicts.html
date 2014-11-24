@@ -1,7 +1,7 @@
 <html>
   <head>
     <link rel="stylesheet" type="text/css" href="style.css">
-	<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
     <title> Conflict Calculator </title>
   </head>
 
@@ -15,40 +15,36 @@
       </ul>
       <br>
       <h1>Conflict Calculator</h1>
-    <hr>
+      <hr>
 
+      <form class="pure-form" name="conflictFinder" action="banner/conflicts.php" method="POST">
+        CRN: <input autofocus=on type="text" required maxlength=5 name="CRN" placeholder="12345"> <br /> <hr>
+        Begin Time: <input type="text" name="beginTime" placeholder="1300, or 1:00 PM" required>
+        End Time: <input type="text" name="endTime" placeholder="1300, or 1:00 PM" required> <br />
+        Day: 
+        <input type="checkbox" name="M">M
+        <input type="checkbox" name="T">T
+        <input type="checkbox" name="W">W
+        <input type="checkbox" name="R">R
+        <input type="checkbox" name="F">F <br />
 
-	<form class="pure-form" name="conflictFinder" action="banner/conflicts.php" method="POST">
-	CRN
-	<input autofocus=on type="text" required maxlength=5 name ="CRN" placeholder="12345">
-    
-	New Time
-	<input type="text" name="newTime" placeholder="1300, or 1:00PM" required>
-
-	New Day (optional) 
-	<input type="checkbox" name="M">M
-	<input type="checkbox" name="T">T
-	<input type="checkbox" name="W">W
-	<input type="checkbox" name="R">R
-	<input type="checkbox" name="F">F
-
-	<input type="submit" class="pure-button pure-button-primary" name="submitButton">
-	</form>
+        <input type="submit" class="pure-button pure-button-primary" name="submitButton">
+      </form>
     </center>
 
   </body>
-<!--
+  <!--
 
-<label>New Time</label>
-	<select required=true form="conflictFinder">
-      <option></option>
-      <option>1:00pm</option>
-      <option>2:00pm</option>
-      <option>3:00pm</option>
-      <option>4:00pm</option>
-      <option>5:00pm</option>
-    </select>
+      <label>New Time</label>
+      <select required=true form="conflictFinder">
+        <option></option>
+        <option>1:00pm</option>
+        <option>2:00pm</option>
+        <option>3:00pm</option>
+        <option>4:00pm</option>
+        <option>5:00pm</option>
+      </select>
 
--->
+      -->
   
 </html>
