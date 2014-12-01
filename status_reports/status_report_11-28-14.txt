@@ -1,0 +1,4 @@
+Status Report: November 28st, 2014 - Team 2 CS 374 14F
+
+Features and corrections added to banner.  This update in the html code grants new capabilities to the test site.  
+
