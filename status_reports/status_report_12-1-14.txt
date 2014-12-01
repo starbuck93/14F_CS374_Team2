@@ -1,0 +1,19 @@
+[tentative text]
+
+Changes added:
+
+html updates
+Several merge conflicts resolved with the repository
+14fse.starbuckstech.com, the url for the test, has new features.  There are now separate abilities:
+
+View Students
+View Courses
+View Sections
+Student Search
+Display Schedule from Banner ID
+Display Section from CRN
+
+This is in addition to Browse Schedules and Conflict Calculator.
+
+
+[will be added: To-do list is the same as for previous statuses]
