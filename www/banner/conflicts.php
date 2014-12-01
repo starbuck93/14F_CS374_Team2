@@ -1,6 +1,8 @@
 <html>
   <head>
     <title> Banner - Conflicts Results </title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
   </head>
 
   <body>
