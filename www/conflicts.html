@@ -3,48 +3,59 @@
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
     <title> Conflict Calculator </title>
+	
+	<script>
+    function getConflicts() {
+        var request = new XMLHttpRequest;
+        var CRN = document.getElementById("CRN").value;
+        var beginTime = document.getElementById("beginTime").value;
+        var endTime = document.getElementById("endTime").value;
+        var m = document.getElementById("m").value;
+        var t = document.getElementById("t").value;
+        var w = document.getElementById("w").value;
+        var r = document.getElementById("r").value;
+        var f = document.getElementById("f").value;
+        request.onreadystatechange = function() {
+            if (request.readyState==4 && request.status==200) {
+                document.getElementById("conflictsDisplay").innerHTML = request.responseText;
+            }
+        }
+        request.open("POST","banner/show-section.php?crn="+CRN&"begintime="+beginTime&"endtime="+endTime&"m="+m&"t="+t&"w="+w&"r="+r&"f="+f,true);
+        request.send();
+    }
+    </script>
   </head>
 
   <body>
     <center>
-      <ul class="pure-menu pure-menu-open pure-menu-horizontal">
+    <ul class="pure-menu pure-menu-open pure-menu-horizontal">
 	<li><a href="index.html">Main</a></li>
 	<li><a href="schedule-browser.html">Browse Schedules</a></li>
+	<li><a href="section-browser.html" >Browse Sections</a></li>
 	<li class="pure-menu-selected"><a href="conflicts.html">Conflict Calculator</a></li>
 	<li><a href="aboutus.html">About Us</a></li>
-      </ul>
-      <br>
-      <h1>Conflict Calculator</h1>
-      <hr>
+    </ul>
+    
+	<br>
 
-      <form class="pure-form" name="conflictFinder" action="banner/conflicts.php" method="POST">
-        CRN: <input autofocus=on type="text" required maxlength=5 name="CRN" placeholder="12345"> <br /> <hr>
-        Begin Time: <input type="text" name="beginTime" placeholder="1300, or 1:00 PM" required>
-        End Time: <input type="text" name="endTime" placeholder="1300, or 1:00 PM" required> <br />
-        Day: 
-        <input type="checkbox" name="M">M
-        <input type="checkbox" name="T">T
-        <input type="checkbox" name="W">W
-        <input type="checkbox" name="R">R
-        <input type="checkbox" name="F">F <br />
+	<h1>Conflict Calculator</h1>
+	<hr>
 
-        <input type="submit" class="pure-button pure-button-primary" name="submitButton">
-      </form>
+	<form class="pure-form" name="conflictFinder">
+		CRN: <input autofocus=on type="text" required maxlength=5 id="CRN" placeholder="12345"> <br /> <hr>
+		Begin Time: <input type="text" id="beginTime" placeholder="1300, or 1:00 PM" required>
+		End Time: <input type="text" id="endTime" placeholder="1300, or 1:00 PM" required> <br />
+		Day: 
+		<input type="checkbox" id="M">M
+		<input type="checkbox" id="T">T
+		<input type="checkbox" id="W">W
+		<input type="checkbox" id="R">R
+		<input type="checkbox" id="F">F <br />
+	</form>
+	<button class="pure-button pure-button-primary" type="button" onclick="getConflicts()">Display Conflicts</button>
     </center>
 
-  </body>
-  <!--
+    <div id="conflictsDisplay"></div>
 
-      <label>New Time</label>
-      <select required=true form="conflictFinder">
-        <option></option>
-        <option>1:00pm</option>
-        <option>2:00pm</option>
-        <option>3:00pm</option>
-        <option>4:00pm</option>
-        <option>5:00pm</option>
-      </select>
-
-      -->
-  
+  </body>  
 </html>
