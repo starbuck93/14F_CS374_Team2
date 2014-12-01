@@ -6,8 +6,6 @@
   </head>
 
   <body>
-    <a href="/index.html">Banner Main</a>
-
 <?php
 include_once("{$_SERVER['DOCUMENT_ROOT']}/php-bin/libhandler.php");
 // make sure needed variables where sent in the URL; use the post method
@@ -15,6 +13,9 @@ if (!isset($_POST) || !array_key_exists('CRN',$_POST) || !array_key_exists('begi
     echo "<p> Bad request </p>";
     exit(0);
 }
+
+if (!array_key_exists('noBackLink',$_POST) || $_POST['noBackLink']=='false')
+    echo "<a href=\"/index.html\">Banner Main</a>";
 
 // create parameter list for conflict handler
 $params = array('CRN' => $_POST['CRN'], 'BEGIN' => $_POST['beginTime'], 'END' => $_POST['endTime']);

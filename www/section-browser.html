@@ -13,7 +13,7 @@
                 document.getElementById("sectionDisplay").innerHTML = request.responseText;
             }
         }
-        request.open("GET","banner/show-section.php?crn="+CRN,true);
+        request.open("GET","banner/show-section.php?crn="+CRN+"&noBackLink=true",true);
         request.send();
     }
     </script>

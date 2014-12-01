@@ -7,21 +7,29 @@
 	<script>
     function getConflicts() {
         var request = new XMLHttpRequest;
-        var CRN = document.getElementById("CRN").value;
-        var beginTime = document.getElementById("beginTime").value;
-        var endTime = document.getElementById("endTime").value;
-        var m = document.getElementById("m").value;
-        var t = document.getElementById("t").value;
-        var w = document.getElementById("w").value;
-        var r = document.getElementById("r").value;
-        var f = document.getElementById("f").value;
+        var senddata = "";
+        senddata += "CRN=" + document.getElementById("CRN").value + "&";
+        senddata += "beginTime=" + document.getElementById("beginTime").value + "&";
+        senddata += "endTime=" + document.getElementById("endTime").value + "&";
+        if (document.getElementById("M").checked)
+            senddata += "M=on" + "&";
+        if (document.getElementById("T").checked)
+            senddata += "T=on" + "&";
+        if (document.getElementById("W").checked)
+            senddata += "W=on" + "&";
+        if (document.getElementById("R").checked)
+            senddata += "R=on" + "&";
+        if (document.getElementById("F").checked)
+            senddata += "F=on" + "&";
+        senddata += "noBackLink=true"; // end POST send data parameters
         request.onreadystatechange = function() {
             if (request.readyState==4 && request.status==200) {
                 document.getElementById("conflictsDisplay").innerHTML = request.responseText;
             }
         }
-        request.open("POST","banner/show-section.php?crn="+CRN&"begintime="+beginTime&"endtime="+endTime&"m="+m&"t="+t&"w="+w&"r="+r&"f="+f,true);
-        request.send();
+        request.open("POST","banner/conflicts.php",true);
+        request.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+        request.send(senddata);
     }
     </script>
   </head>
@@ -35,8 +43,7 @@
 	<li class="pure-menu-selected"><a href="conflicts.html">Conflict Calculator</a></li>
 	<li><a href="aboutus.html">About Us</a></li>
     </ul>
-    
-	<br>
+    	<br>
 
 	<h1>Conflict Calculator</h1>
 	<hr>

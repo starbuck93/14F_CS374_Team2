@@ -7,12 +7,14 @@
   </head>
 
   <body>
-    <a href="/index.html">Banner Main</a>
-
     <p>
 
 <?php
 include_once("{$_SERVER['DOCUMENT_ROOT']}/php-bin/libquery.php");
+
+if (!isset($_GET) || !array_key_exists('noBackLink',$_GET) || $_GET['noBackLink']=='false')
+    echo "<a href=\"/index.html\">Banner Main</a>";
+
 $query = new DBQuery("SELECT crn, subject_code, number, title, first_name, last_name, begin_time, end_time, dow, building.code, room.code FROM banner.section
 INNER JOIN banner.course ON course.id = course_id
 INNER JOIN banner.professor ON professor.id = professor_id

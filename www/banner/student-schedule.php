@@ -10,8 +10,9 @@
 
 <?php
 include_once("{$_SERVER['DOCUMENT_ROOT']}/php-bin/libquery.php");
-echo "<a href=\"/index.html\"> Banner Main </a>";
-if ( !array_key_exists('bannerid',$_GET) ) {
+if (!isset($_GET) || !array_key_exists('noBackLink',$_GET) || $_GET['noBackLink']=='false')
+    echo "<a href=\"/index.html\">Banner Main</a>";
+if (!isset($_GET) || !array_key_exists('bannerid',$_GET)) {
     echo "<p><strong>Bad request</strong></p>\n";
 }
 else {
