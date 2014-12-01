@@ -76,7 +76,7 @@ class DBQuery {
         }
         // restore previous iterator position
         mysql_data_seek($this->result,$this->rowIter);
-        return "<table border=\"1\" style=\"width:100%\">$content</table>";
+        return "<table border=\"1\" class=\"pure-table pure-table-bordered\">$content</table>";
     }
 }
 ?>
