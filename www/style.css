@@ -26,10 +26,13 @@
 
 .colform {
     float:left;
+	margin-right: 2.5px;
+	margin-left: 2.5px;
 }
 
 body {
     background-color: #E0E0E0;
+	width: auto;
 }
  h3{
 	color: #787878 ;
