@@ -8,42 +8,45 @@
 
   </head>
   <body>
+	<div id="wrapper">
     <center>
-      <ul class="pure-menu pure-menu-open pure-menu-horizontal">
-	<li class="pure-menu-selected"><a href="#">Main</a></li>
-	<li><a href="schedule-browser.html" >Browse Schedules</a></li>
-	<li><a href="section-browser.html" >Browse Sections</a></li>
-	<li><a href="conflicts.html">Conflict Calculator</a></li>
-	<li><a href="aboutus.html">About Us</a></li>
-      </ul>
-      <br>
-      <h1>Course Conflict Calculator</h1>
-      <h3>Team 2: Gee, Shouse, Starbuck, Waddle</h3>
+	<ul class="pure-menu pure-menu-open pure-menu-horizontal">
+		<li class="pure-menu-selected"><a href="#">Main</a></li>
+		<li><a href="schedule-browser.html" >Browse Schedules</a></li>
+		<li><a href="section-browser.html" >Browse Sections</a></li>
+		<li><a href="conflicts.html">Conflict Calculator</a></li>
+		<li><a href="aboutus.html">About Us</a></li>
+	</ul>
+	<div id="content">
+		<br>
+		<h1>Course Conflict Calculator</h1>
+		<h3>Team 2: Gee, Shouse, Starbuck, Waddle</h3>
 
-      <h2> Banner Main </h2>
+		<h2> Banner Main </h2>
 
-      <form action="banner/student-schedule.php" method="get">
-        Banner ID: <input type="text" name="bannerid" />
-        <input type="submit" class="pure-button pure-button-primary" value="Display Schedule"/>
-      </form>
-      <br />
-      <form action="banner/show-section.php" method="get">
-        CRN: <input type="text" name="crn" />
-        <input type="submit" class="pure-button pure-button-primary" value="Display Section"/>
-      </form>
-
-      <hr>
-      <form action="banner/student.php" method="get" class="colform">
-        <input type="submit" class="pure-button pure-button-primary" value="View Students"/>
-      </form>
-      <form action="banner/course.php" method="get" class="colform">
-        <input type="submit" class="pure-button pure-button-primary" value="View Courses"/>
-      </form>
-      <form action="banner/section.php" method="get" class="colform">
-        <input type="submit" class="pure-button pure-button-primary" value="View Sections"/>
-      </form>
-      <a href="student-search.html" class="colform pure-button pure-button-primary">Student Search</a>
-	</center>
+		<form action="banner/student-schedule.php" method="get">
+		Banner ID: <input type="text" name="bannerid" />
+		<input type="submit" class="pure-button pure-button-primary" value="Display Schedule"/>
+		</form>
+		<br />
+		<form action="banner/show-section.php" method="get">
+		CRN: <input type="text" name="crn" />
+		<input type="submit" class="pure-button pure-button-primary" value="Display Section"/>
+		</form>
+	</div>
+	<div id="footer">
+	<hr>
+		<form action="banner/student.php" method="get" class="colform">
+		<input type="submit" class="pure-button pure-button-primary" value="View Students"/>
+		</form>
+		<form action="banner/course.php" method="get" class="colform">
+		<input type="submit" class="pure-button pure-button-primary" value="View Courses"/>
+		</form>
+		<form action="banner/section.php" method="get" class="colform">
+		<input type="submit" class="pure-button pure-button-primary" value="View Sections"/>
+		</form>
+		<a href="student-search.html" class="colform pure-button pure-button-primary">Student Search</a>
+	</div></center>
 
   </body>
 

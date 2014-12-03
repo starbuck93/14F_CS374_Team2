@@ -1,39 +1,25 @@
-#nav {
-    display: table;
-    height: 50px;
-    width: 75%;
-    font-size: 30px;
-    font-size: 2vw;
-}
-
-#nav li {
-    display: table-cell;
-    height: 10px;
-    width: 25%;  /* (100 / numItems)% */
-    line-height: 50px;
-    text-align: center;
-    background: #ddd;
-    border-right: 1px solid #fff;
-    white-space: nowrap;
-}​
-
-@media (max-width: 767px) {
-    #nav li {
-        display: block;
-        width: 100%;
-    }
-}
-
-.colform {
+ .colform {
     float:left;
 	margin-right: 2.5px;
 	margin-left: 2.5px;
-}
+} 
 
 body {
     background-color: #E0E0E0;
 	width: auto;
+	margin: 0;
+	padding: 0;
 }
+
+#content {
+    min-height: 100%;
+    margin-bottom: -200px; /* Equivalent to footer's height */
+}
+
+.spacer, #footer {
+      z-index: 1;
+}
+
  h3{
 	color: #787878 ;
  }
