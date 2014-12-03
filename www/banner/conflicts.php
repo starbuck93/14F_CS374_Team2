@@ -15,7 +15,7 @@ if (!isset($_POST) || !array_key_exists('CRN',$_POST) || !array_key_exists('begi
 }
 
 if (!array_key_exists('noBackLink',$_POST) || $_POST['noBackLink']=='false')
-    echo "<a href=\"/index.html\">Banner Main</a>";
+    echo "<a style= \"margin-top:10px;margin-left:10px;\" class=\"pure-button pure-button-primary\" href=\"/index.html\">Banner Main</a></div>";
 
 // create parameter list for conflict handler
 $params = array('CRN' => $_POST['CRN'], 'BEGIN' => $_POST['beginTime'], 'END' => $_POST['endTime']);
