@@ -35,7 +35,6 @@
   </head>
 
   <body>
-    <center>
     <ul class="pure-menu pure-menu-open pure-menu-horizontal">
 	<li><a href="index.html">Main</a></li>
 	<li><a href="schedule-browser.html">Browse Schedules</a></li>
@@ -46,13 +45,23 @@
     	<br>
 
 	<h1>Conflict Calculator</h1>
-	<hr>
+
 
 	<form class="pure-form" name="conflictFinder">
-		CRN: <input autofocus=on type="text" required maxlength=5 id="CRN" placeholder="12345"> <br /> <br>
-		Begin Time: <input type="text" id="beginTime" placeholder="1300, or 1:00 PM" required>
-		End Time: <input type="text" id="endTime" placeholder="1300, or 1:00 PM" required> <br />
+	<table>
+		<tr><td><b>CRN: </b></td> <td><input autofocus=on type="text" required maxlength=5 id="CRN" placeholder="12345"> <br> </td></tr>
+		<tr><td><b>Start Time: </b></td> <td><input type="text" id="beginTime" placeholder="1300, or 1:00 PM" required> <br></td></tr>
+		<tr><td><b>End Time: </b></td> <td><input type="text" id="endTime" placeholder="1300, or 1:00 PM" required> <br></td></tr>
+	</table>	
 		<table>
+		<tr>
+			<td>Day:</td> 
+			<td>M</td>
+			<td>T</td>
+			<td>W</td> 
+			<td>R</td> 
+			<td>F</td> <br />
+		</tr>		
 		<tr>
 			<td></td> 
 			<td><input type="checkbox" id="M"></td>
@@ -61,19 +70,13 @@
 			<td><input type="checkbox" id="R"></td> 
 			<td><input type="checkbox" id="F"></td> <br />
 		</tr>
-		<tr>
-			<td>Day:</td> 
-			<td>M</td>
-			<td>T</td>
-			<td>W</td> 
-			<td>R</td> 
-			<td>F</td> <br />
-		</tr>
+
+
 		</table>
+
 		<br>
 	</form>
 	<button class="pure-button pure-button-primary" type="button" onclick="getConflicts()">Display Conflicts</button>
-    </center>
 
     <div id="conflictsDisplay"></div>
 

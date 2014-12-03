@@ -9,6 +9,7 @@ body {
 	width: auto;
 	margin: 0;
 	padding: 0;
+    text-align: center;
 }
 
 #content {
@@ -26,21 +27,53 @@ body {
     bottom: 10px;
 }
 
+.box1 {
+    margin-left:  35%;
+    margin-right: 35%;
+     border-style: solid;
+     border-width: 1px;
+     border-color: #000000;
+     border-radius: 5px;
+     height: auto;
+    padding: 25px;
+    font-weight: bold;
+    width: auto;
+}
+
+.box2 {
+    margin-left:  35%;
+    margin-right: 35%;
+     border-style: solid;
+     border-width: 1px;
+     border-color: #000000;
+     border-radius: 5px;
+     height: auto;
+    padding: 25px;
+    font-weight: bold;
+    width: auto;
+}
+
+
  h3{
-	color: #787878 ;
+    color: #787878 ;
+ }
+
+ h4{
+    color: #787878 ;
  }
  
 table {
 	border-collapse: collapse;
+    margin-left: auto;
+    margin-right: auto; 
 }
  
  tr {
 	height: auto;
-	border: none;
  }
  
  td {
 	padding: 5px;
-	border-left:  solid 1px #000000;
-    border-right: solid 1px #000000; 
- }
+    font-weight: bold;
+    text-align: right;
+}

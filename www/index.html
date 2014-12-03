@@ -9,7 +9,6 @@
   </head>
   <body>
 	<div id="wrapper">
-    <center>
 	<ul class="pure-menu pure-menu-open pure-menu-horizontal">
 		<li class="pure-menu-selected"><a href="#">Main</a></li>
 		<li><a href="schedule-browser.html" >Browse Schedules</a></li>
@@ -23,17 +22,23 @@
 		<h3>Team 2: Gee, Shouse, Starbuck, Waddle</h3>
 
 		<h2> Banner Main </h2>
-
+		<h4> -Quick Actions- </h4>
+		<br>
+		<div class="box1">
 		<form class="pure-form" action="banner/student-schedule.php" method="get">
-		Banner ID: <input type="text" name="bannerid" />
+		<div style="padding-bottom:10px;">Banner ID: <input type="text" placeholder= "000000000" name="bannerid" /></div>
 		<input type="submit" class="pure-button pure-button-primary" value="Display Schedule"/>
-		</form>
-		<br />
+		</form></div>
+
+		<br><br>
+
+		<div class="box2">
 		<form class="pure-form" action="banner/show-section.php" method="get">
-		CRN: <input type="text" name="crn" />
+		<div style="padding-bottom:10px;">CRN: <input type="text" placeholder= "12345" name="crn" /></div>
 		<input type="submit" class="pure-button pure-button-primary" value="Display Section"/>
 		</form>
-	<hr>
+		</div>
+	
 	</div>
 	
 	<div id="footer">
@@ -48,7 +53,7 @@
 		<input type="submit" class="pure-button pure-button-primary" value="View Sections"/>
 		</form>
 		<a href="student-search.html" class="colform pure-button pure-button-primary">Student Search</a>
-	</div></center>
+	</div>
 
   </body>
 
