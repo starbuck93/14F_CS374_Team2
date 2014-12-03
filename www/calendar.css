@@ -1,0 +1,20 @@
+#calendar{
+	width:1000px;
+	height:1000px;
+}
+#timeofday{
+	width:100px;
+	height:900px;
+	margin-top:100px;
+	float:left;
+}
+#dayofweek{
+	width:900px;
+	height:100px;
+	margin:0 0 0 100px;
+}
+#grid{
+	width:900px;
+	height:900px;
+	float:right;
+}

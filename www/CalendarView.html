@@ -1,24 +1,96 @@
 <html>
 	<head>
 
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
-    <script src="interact.js"></script>
-    <title>Course Conflicts</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="calendar.css">
+	<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+	<script src="interact.js"></script>
+	<script>
+		var deptArr=[];
 
- 	</head>
- 	<body>
-	    <center>
-	    <ul class="pure-menu pure-menu-open pure-menu-horizontal">
+		function displayDepts(){
+			document.getElementById("deptlist").innerHTML="";
+			for(i=0;i<deptArr.length;i++){
+				document.getElementById("deptlist").innerHTML+="<li>"+deptArr[i]+"</li>";
+			}
+		}
+
+		function addDept(){
+			var e=document.getElementById("chooselist");
+			var answer=e.options[e.selectedIndex].value;
+			var match=false;
+			for(i=0;i<deptArr.length;i++){
+				if(deptArr[i]==answer){
+					match=true;
+				}
+			}
+			if(match==false){
+				deptArr[deptArr.length]=answer;
+			}
+			displayDepts();
+		}
+
+		function removeDept(){
+			var e=document.getElementById("chooselist");
+			var answer=e.options[e.selectedIndex].value;
+			for(i=0;i<deptArr.length;i++){
+				if(deptArr[i]==answer){
+					deptArr.splice(i, 1);
+					break;
+				}
+			}
+			displayDepts();
+		}
+
+		function popCal(){
+
+		}
+	</script>
+	<title>Course Conflicts</title>
+
+	</head>
+	<body>
+		<center>
+		<ul class="pure-menu pure-menu-open pure-menu-horizontal">
 			<li><a href="index.html">Main</a></li>
 			<li><a href="schedule-browser.html" >Browse Schedules</a></li>
 			<li><a href="conflicts.html">Conflict Calculator</a></li>
-			<li><a class="pure-menu-selected" href="#">Interactive Calendar</a></li>
+			<li class="pure-menu-selected"><a href="#">Interactive Calendar</a></li>
 			<li><a href="aboutus.html">About Us</a></li>
 		</ul>
-
+		<h1>Calendar Editor</h1>
+		<div>
+			<div id="chooseOpts">
+			<form>
+				<select id="chooselist">
+					<option>CS</option>
+					<option>DET</option>
+					<option>IT</option>
+					<option>IS</option>
+					<option>MATH</option>
+					<option>CHEM</option>
+					<option>BIOL</option>
+					<option>PHYS</option>
+				</select>
+			</form>
+			<button onclick="addDept()">Add Deparment</button>
+			<button onclick="removeDept()">Remove Deparment</button>
+			</div> 
+			<div id="currentDepts">
+				<ul id="deptlist"></ul>
+			</div>
+			<button onclick="popCal()">Populate Calendar</button>
+		</div>
 		<div id="calendar">
-
+			<div id="timeofday">
+				
+			</div>
+			<div id="dayofweek">
+			
+			</div>
+			<div id="grid">
+				
+			</div>
 		</div>
 	</body>
 </html>
