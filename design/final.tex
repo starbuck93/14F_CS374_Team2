@@ -1,0 +1,216 @@
+\documentclass[11pt]{article}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage[margin=0.5in]{geometry}
+\usepackage{changepage}
+
+\hypersetup{linkcolor=blue,colorlinks=true}
+
+\begin{document}
+\begin{center}
+\LARGE{\textbf{Project Document}}\\
+\normalsize{Team 2 - CS374 - Fall 2014}
+\end{center}
+\vspace{.1in}
+
+In this document, we describe the specifications for our Schedule Conflict Calculator application.
+\vspace{.2in}
+
+\LARGE Table of Contents \\
+
+\normalsize
+\begin{tabular}{| l || r |}
+  \hline
+  \nameref{sec:reqs} & Describes requirements of our product \\ \hline
+  \nameref{sec:scenes} & Describes user interaction with our product \\ \hline
+  \nameref{sec:dataflow} & Describes the interaction of modules within our product \\ \hline
+  \nameref{sec:design} & Describes the technical design of the system \\ \hline
+  \nameref{sec:verify} & Describes the verification of modules within our product \\ \hline
+  \nameref{sec:glossary} & Glossary of terms \\
+  \hline
+\end{tabular}
+
+\pagebreak[4]
+
+\section{Requirements} \label{sec:reqs}
+
+Our Schedule Conflict Calculator Web application will function as an extension to other academic administration technologies. Given
+a set of inputs related to moving a course from one time block to another, the application determines the number of student
+scheduling conflicts that would arise in some number of move scenarios. The application handles a number of different move
+scenarios, allowing the user to decide which scenario to test.
+
+\pagebreak[4]
+
+\section{Use Cases and Scenarios} \label{sec:scenes}
+
+The user is allowed multiple scenarios for calculating schedule conflicts. For example, sometimes the user has a single
+\textit{section-change description} in mind and would like to see scheduling conflicts. In other instances, a user might
+know that they need to move a section to another time and/or room, yet would like to know which room out of a set of possible
+candidates has the least number of conflicts.
+\vspace{.2in}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.5\textwidth]{diagrams/scenarioA.png}
+  \caption{Describes a simple scenario for finding conflicts given a single section-change description}
+\end{figure}
+
+In the simple case, we consider a single section-change description supplied with a desired input section. Output will consist of the
+number of conflicts as well as a detailed look at individual conflicts. If another section is already \textit{associated} with the
+section-change description, the user is informed of the conflict but is still provided the normal conflict output as if there weren't
+a course currently associated with the description. Other input parameters might be needed to provide a more customized operation tailored
+to meet user needs.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.5\textwidth]{diagrams/scenarioB.png}
+  \caption{Describes a more complex scenario for finding conflicts given multiple section-change descriptions}
+\end{figure}
+
+Other scenarios are needed for more complex operations. A user might wish to provide a set of section-change descriptions to apply to
+the input section in order to find the best change description. This set of descriptions may encompass multiple rooms and buildings and also
+take into consideration moving courses already associated with section-change descriptions. This introduces added complexity. \\
+
+To deal with this complexity, we introduce the terms \textit{locked-section} and \textit{floating-section} (see glossary). In the proposed
+scenario (Figure 2), a set of section-change descriptions is provided into which the input section may be moved. In a simple case, the scenario
+given in Figure 1 can be applied to each description. The description(s) with the fewest conflicts are then presented as output. However, sometimes
+more than one section can be moved within the sections already associated with each section-change description. Each one of these sections is either marked
+as a \textit{locked-section} or a \textit{floating-section}. A locked-section is one that cannot be moved. This automatically disqualifies the description to
+which the locked-section is associated (conflicts are still computed as in the Figure 1 scenario). A floating-section may be moved within the set of 
+section-change descriptions.
+
+\pagebreak[4]
+
+\section{Data Flow} \label{sec:dataflow}
+
+This section describes the interaction of various modules within our application. We map the flow of data through the different
+modules of the application, demonstrating how it is used and transformed.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=1\textwidth,scale=1.5]{diagrams/dataflow.png}
+  \caption{Data flow diagram for main application operation}
+\end{figure}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=.75\textwidth]{diagrams/FunctionA.png}
+  \caption{Details function A in Figure 3}
+\end{figure}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=.75\textwidth]{diagrams/FunctionsB&C.png}
+  \caption{Details function B and C in Figure 3}
+\end{figure}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=.75\textwidth]{diagrams/FunctionD.png}
+  \caption{Details function D in Figure 3}
+\end{figure}
+
+In each proposed scenario, a user provides input through an HTML form which is passed to a data handler. The data handler uses an
+SQL database connection to issue a query and retrieve the data needed to execute the task. The handler is responsible for producing
+the desired result. Different handlers will require different amounts and/or types of data and thus will make different queries. Handlers
+will be implemented using a class hierarchy in PHP. Each derived class will implement a different handler-kind which executes a
+distinct scenario. \\
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=.75\textwidth]{diagrams/data-handler-uml.png}
+  \caption{Simple UML concept for data-handler class-hierarchy}
+\end{figure}
+
+Though each handler performs a different operation, it still functions according to the same interface. Figure 3 graphically
+models data as it flows from the client, is transformed and goes back to the client as output. Figures 4-6 provide in more detail
+the functions presented in Figure 3.
+
+\clearpage
+\pagebreak[4]
+
+\section{Design} \label{sec:design}
+
+Here is the layout of the directories in the www folder of the system:\\ \\
+
+aboutus.html\\
+conflicts.html\\
+index.html\\
+schedule-browser.html\\
+section-browser.html\\
+student-search.html\\
+style.css\\
+banner/conflicts.php\\
+banner/course.php\\
+banner/section.php\\
+banner/show-section.php\\
+banner/student.php\\
+banner/student-schedule.php\\
+banner/student-search.php\\
+php-bin/libhandler.php\\
+php-bin/libquery.php\\ \\
+The php-bin directory holds the class declarations, and the banner directory holds the implementation of those libraries. \\ \\
+The following diagram is our Database diagram\\
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=.75\textwidth]{diagrams/ERD_current.png}
+  \caption{ERD showing the relational database}
+\end{figure}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=.75\textwidth]{diagrams/SEproject.png}
+  \caption{UML Class Diagram showing our object design}
+\end{figure}
+
+\clearpage
+\pagebreak[4]
+
+\section{Verification} \label{sec:verify}
+The verification of our project will include the following procedures: \\
+\begin{adjustwidth}{.75in}{}
+  \begin{tabular}{|| l ||}
+    \hline
+    Black-box testing \\ \hline
+    Module Testing \\ \hline
+    System Testing \\ \hline
+    Acceptance Testing \\ \hline
+    Performance Testing \\ \hline
+    Status Reports \\ \hline
+  \end{tabular}
+\end{adjustwidth}
+\vspace{.1in}
+
+These are the ways in which we will implement the aforementioned procedures. \\
+
+\hspace{-.5in} \textbf{Black Box Testing} \\
+
+Our team used the testing framework \textit{Cucumber} for testing some site-related functionality. \textit{Cucumber} can check for expected outputs when given an input
+or set of inputs. Using \textit{Cucumber} will allow comprehensive, automated testing of our files. \\
+
+\hspace{-.5in} \textbf{Module Testing} \\
+
+We have manually tested module inputs and test the output, using the actual classes/functionality of our final product \\
+
+\hspace{-.5in} \textbf{System Testing} \\
+
+This project's entire system has been manually tested, where input from a person was testing against the expected output. \\
+
+\hspace{-.5in} \textbf{Acceptance Testing} \\
+
+Our team is presenting the product to the client, for the client to decide if it meets the criteria set out for it. \\
+
+\hspace{-.5in} \textbf{Performance Testing} \\
+
+The system has been tested at production level, and should only be operated at the capacity it is currently running, as old semester data must be removed as new semester data is added.\\ 
+
+Also, status reports are made weekly to record the work that is done each week and how the team is performing.
+
+\pagebreak[4]
+
+\section{Glossary} \label{sec:glossary}
+
+\input{glossary-source.tex}
+
+\end{document}
