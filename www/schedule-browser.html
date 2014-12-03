@@ -13,7 +13,7 @@
                 document.getElementById("scheduleDisplay").innerHTML = request.responseText;
             }
         }
-        request.open("GET","banner/student-schedule.php?bannerid="+bannerid,true);
+        request.open("GET","banner/student-schedule.php?bannerid="+bannerid+"&noBackLink=true",true);
         request.send();
     }
     </script>

@@ -31,10 +31,12 @@ else {
 
     echo "<h1>Schedule listing for {$row[0]}, {$row[1]} [$bannerid]</h1>";
 
-    $schedule = new DBQuery("SELECT subject_code, number, title, begin_time, end_time FROM banner.student_section INNER JOIN
+    $schedule = new DBQuery("SELECT crn, subject_code, number, title, begin_time, end_time, dow FROM banner.student_section INNER JOIN
 banner.section ON banner.section.id = banner.student_section.section_id INNER JOIN banner.course ON
 banner.section.course_id = banner.course.id INNER JOIN banner.student ON
-banner.student_section.student_id = banner.student.id WHERE banner.student_section.student_id = $bannerid;");
+banner.student_section.student_id = banner.student.id
+WHERE banner.student_section.student_id = $bannerid
+ORDER BY course.title;");
 
     echo $schedule->htmlitize();
 }

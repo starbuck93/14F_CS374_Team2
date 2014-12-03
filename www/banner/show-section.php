@@ -37,7 +37,8 @@ $heading = $q1->get_next_row();
 
 $q2 = new DBQuery("SELECT student.id, first_name, middle_name, last_name, classification FROM banner.section
 INNER JOIN banner.student_section ON crn=$crn AND section.id = section_id
-INNER JOIN banner.student ON student_id = student.id;");
+INNER JOIN banner.student ON student_id = student.id
+ORDER BY student.classification, last_name;");
 if ($q2->is_empty()) { // section shouldn't be empty
     echo "<p>No students where associated with the specified section</p>";
     exit(0);
