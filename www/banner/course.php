@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
   </head>
 
-  <body>
+  <body><center>
     <p>
 <?php
 include_once("{$_SERVER['DOCUMENT_ROOT']}/php-bin/libquery.php");
@@ -18,5 +18,5 @@ $query = new DBQuery("SELECT * FROM banner.course");
 echo $query->htmlitize();
 ?>
     </p>
-  </body>
+  </center></body>
 </html>

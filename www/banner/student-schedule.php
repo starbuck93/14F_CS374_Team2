@@ -7,7 +7,7 @@
   </head>
 
   <body>
-
+<center>
 <?php
 include_once("{$_SERVER['DOCUMENT_ROOT']}/php-bin/libquery.php");
 if (!isset($_GET) || !array_key_exists('noBackLink',$_GET) || $_GET['noBackLink']=='false')
@@ -42,5 +42,5 @@ ORDER BY course.title;");
 }
 ?>
 
-  </body>
+ </center> </body>
 </html>

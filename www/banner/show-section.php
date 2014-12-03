@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
   </head>
 
-  <body>
+  <body><center>
 
 <?php
 include_once("{$_SERVER['DOCUMENT_ROOT']}/php-bin/libquery.php");
@@ -49,5 +49,5 @@ echo "<h1>Section listing for {$heading[0]} {$heading[1]} {$heading[2]} [CRN=$cr
     . $q2->htmlitize();
 ?>
 
-  </body>
+  </center></body>
 </html>
