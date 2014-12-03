@@ -13,20 +13,34 @@ body {
 
 #content {
     min-height: 100%;
-    margin-bottom: -200px; /* Equivalent to footer's height */
-    padding-bottom: 200px; /* Equivalent to footer's height */
-    
+    margin-bottom: -100px; /* Equivalent to footer's height */
+    padding-bottom: 100px; /* Equivalent to footer's height */
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;}
 
 #footer{
     width: 100%;
-    height: 100px;
+    height: auto;
     position: fixed;
-    bottom: 0px;
+    bottom: 10px;
 }
 
  h3{
 	color: #787878 ;
+ }
+ 
+table {
+	border-collapse: collapse;
+}
+ 
+ tr {
+	height: auto;
+	border: none;
+ }
+ 
+ td {
+	padding: 5px;
+	border-left:  solid 1px #000000;
+    border-right: solid 1px #000000; 
  }

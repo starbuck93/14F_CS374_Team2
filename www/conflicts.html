@@ -49,16 +49,27 @@
 	<hr>
 
 	<form class="pure-form" name="conflictFinder">
-		CRN: <input autofocus=on type="text" required maxlength=5 id="CRN" placeholder="12345"> <br /> <hr>
+		CRN: <input autofocus=on type="text" required maxlength=5 id="CRN" placeholder="12345"> <br /> <br>
 		Begin Time: <input type="text" id="beginTime" placeholder="1300, or 1:00 PM" required>
 		End Time: <input type="text" id="endTime" placeholder="1300, or 1:00 PM" required> <br />
-		<br>
-		Day: 
-		<input type="checkbox" id="M">M 
-		<input type="checkbox" id="T">T 
-		<input type="checkbox" id="W">W 
-		<input type="checkbox" id="R">R 
-		<input type="checkbox" id="F">F <br />
+		<table>
+		<tr>
+			<td></td> 
+			<td><input type="checkbox" id="M"></td>
+			<td><input type="checkbox" id="T"></td>
+			<td><input type="checkbox" id="W"></td> 
+			<td><input type="checkbox" id="R"></td> 
+			<td><input type="checkbox" id="F"></td> <br />
+		</tr>
+		<tr>
+			<td>Day:</td> 
+			<td>M</td>
+			<td>T</td>
+			<td>W</td> 
+			<td>R</td> 
+			<td>F</td> <br />
+		</tr>
+		</table>
 		<br>
 	</form>
 	<button class="pure-button pure-button-primary" type="button" onclick="getConflicts()">Display Conflicts</button>
