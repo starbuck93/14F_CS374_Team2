@@ -46,14 +46,13 @@
 
 	<h1>Conflict Calculator</h1>
 
-
-	<form class="pure-form" name="conflictFinder">
+	<form class="pure-form" name="conflictFinder">	
 	<table>
-		<tr><td><b>CRN: </b></td> <td><input autofocus=on type="text" required maxlength=5 id="CRN" placeholder="12345"> <br> </td></tr>
-		<tr><td><b>Start Time: </b></td> <td><input type="text" id="beginTime" placeholder="1300, or 1:00 PM" required> <br></td></tr>
-		<tr><td><b>End Time: </b></td> <td><input type="text" id="endTime" placeholder="1300, or 1:00 PM" required> <br></td></tr>
+		<tr><td class="tdd"><b>CRN: </b></td> <td><input autofocus=on type="text" required maxlength=5 id="CRN" placeholder="12345"> <br> </td></tr>
+		<tr><td class="tdd"> <b>Start Time: </b></td> <td><input type="text" id="beginTime" placeholder="1300, or 1:00 PM" required> <br></td></tr>
+		<tr><td class="tdd"><b>End Time: </b></td> <td><input type="text" id="endTime" placeholder="1300, or 1:00 PM" required> <br></td></tr>
 	</table>	
-		<table>
+	<table>
 		<tr>
 			<td>Day:</td> 
 			<td>M</td>
@@ -73,11 +72,11 @@
 
 
 		</table>
-
+	
 		<br>
 	</form>
 	<button class="pure-button pure-button-primary" type="button" onclick="getConflicts()">Display Conflicts</button>
-
+<br>
     <div id="conflictsDisplay"></div>
 
   </body>  

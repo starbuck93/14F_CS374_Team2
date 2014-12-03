@@ -75,5 +75,7 @@ table {
  td {
 	padding: 5px;
     font-weight: bold;
-    text-align: right;
+}
+td.tdd {
+       text-align: right;
 }
