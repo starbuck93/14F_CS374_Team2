@@ -1,0 +1,64 @@
+Main Page http://14fse.starbuckstech.com/index.html
+
+	Banner IDs pulled from CRN 11069 CS 374 Software Engineering
+		563126
+		144826
+		816062
+		867548
+
+	CRN
+		11069 CS 374
+
+	Student search
+		CS		374
+
+Schedule Browser http://14fse.starbuckstech.com/schedule-browser.html
+	
+	Banner IDs
+		563126
+		144826
+		816062
+		867548
+
+Section Browser http://14fse.starbuckstech.com/section-browser.html
+	
+	CRNs
+		11069
+		11086
+		11413
+		11173
+		11091
+
+Conflict Calculator ----- 3 tests -----
+
+	CRN		11069 CS 374
+	New times: 0800 end 0850
+	No days checked
+	GO
+	Should be no conflicts
+	
+	CRN		11069 CS 374
+	New times: 0800 end 0850
+	Tuesday and Thursday checked
+	GO
+	Should be 6 conflicts, mainly Stats
+	
+	CRN		11069 CS 374
+	New times: 1500 end 1550
+	No days checked
+	GO
+	Should be 4 conflicts
+
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

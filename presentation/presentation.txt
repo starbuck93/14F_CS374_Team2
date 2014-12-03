@@ -1,0 +1,76 @@
+Main index.html: 14fse.starbuckstech.com
+	Main Navbar: Main, Browse Schedules, Browse sections, Conflict calculator, about us
+		Browse Schedules = input a banner ID and output a single student's schedule
+		Browse Sections = input a CRN and output a single section with information about the course
+		Conflict Calculator = input a CRN and a new time for the section to be at and return the conflicts
+	Title
+	Team 2
+	Banner Main = blah blah blah blah
+	Input a Banner ID and output a student's schedule in a new page with a back button
+	Input a CRN and output a single section in a new page with a back button
+	
+	Secondary navbar AKA "Footer"
+		View Students: output all students ordered by ID
+		View Courses: output all courses ordered by subject_code and number
+		View Sections: output all sections of every course ordered by subject_code and number which includes the CRNs
+		Student Search: A side project that allows us to find ourselves inside of the fake names and banner ID numbers
+
+http://14fse.starbuckstech.com/schedule-browser.html
+Schedule Browser
+	Title
+	Input a banner ID and output a single student's schedule using AJAX, a PHP script and a PHP library
+		PHP Script: student-schedule.php
+
+http://14fse.starbuckstech.com/section-browser.html
+Section Browser
+	Title
+	Input a CRN and output a single section with information about the course using AJAX, a PHP script and a PHP library
+		PHP Script: show-section.php		
+
+http://14fse.starbuckstech.com/conflicts.html
+Conflict Calculator
+	Title
+	CRN Input
+	Begin Time can be an integer number or it could be a time with AM/PM, the PHP script will figure out which one you've typed in
+	End time is similary formatted to begin time
+	Day : optional! If you don't select a day, it will assume you don't want to change the days the course will be moved to
+	Display conflicts button	
+		PHP Script conflicts.php and AJAX work together here to output the conflicts
+
+About Us
+	We wanna be the very best.
+
+
+	
+	
+	
+	
+Database stuff:
+
+	MySQL does the heavy lifting of course
+	+------------------+
+	| Tables_in_banner |
+	+------------------+
+	| building         |
+	| course           |
+	| professor        |
+	| room             |
+	| section          |
+	| student          |
+	| student_section  |
+	+------------------+
+	
+	See the current ERD PNG file in the presentation/ directory
+
+
+PHP Library stuff:
+
+
+
+
+
+
+
+
+Status reports stuff:
+
