@@ -127,7 +127,7 @@ abstract class ConflictHandler {
                     throw new HandlerException("ConflictHandler::__construct: fail preg_match()");
                 if (count($matches) != 4)
                     throw new BadTimeFormatException("time string {$input[$key]} was not formatted correctly");
-                $n = strtolower($matches[3])=='am' ? 0 : 1200;
+                $n = strtolower($matches[3])=='am' ? ($matches[1]=='12' ? 1200 : 0) : ($matches[1]=='12' ? 0 : 1200);
                 $n += 100 * intval($matches[1]) % 2400;
                 $n += intval($matches[2]);
                 $input[$key] = "$n";
